@@ -72,7 +72,7 @@ public class FriendIdMap {
             if (ind > 0)
                 n = n.substring(0, ind);
             if (!n.equals("*"))
-                return n;
+                return n.replaceAll("\\||董健涛","");;
         } else {
             putIdMap(id, "*(*)");
         }
