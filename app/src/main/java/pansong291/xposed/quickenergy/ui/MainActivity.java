@@ -91,15 +91,15 @@ public class MainActivity extends Activity {
             version = " v" + packageInfo.versionName;
         } catch (PackageManager.NameNotFoundException ignored) {
         }
-        this.setTitle(this.getTitle() + version);
+        this.setTitle("芝麻粒小优化" + version);
 
         setModuleActive(isExpModuleActive(this));
         PermissionUtil.requestPermissions(this);
-        new AlertDialog.Builder(this)
+        /*new AlertDialog.Builder(this)
                 .setTitle("提示")
                 .setMessage("本APP是为了学习研究开发，免费提供，不得进行任何形式的转发、发布、传播。请于24小时内卸载本APP。如果您是购买的可能已经被骗，请联系卖家退款。")
                 .setNegativeButton("我知道了", null)
-                .create().show();
+                .create().show();*/
     }
 
     @Override
