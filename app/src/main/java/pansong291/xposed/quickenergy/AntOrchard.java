@@ -105,7 +105,7 @@ public class AntOrchard {
                         int awardCount = spreadManureStage.getInt("awardCount");
                         JSONObject joo = new JSONObject(AntOrchardRpcCall.receiveTaskAward(sceneCode, taskType));
                         if (joo.getBoolean("success")) {
-                            Log.farm("丰收礼包🎁[肥料*" + awardCount + "]");
+                            Log.farm("丰收礼包[肥料*" + awardCount + "]");
                         } else {
                             Log.recordLog(joo.getString("desc"), joo.toString());
                         }
@@ -133,7 +133,7 @@ public class AntOrchard {
                         taobaoData = jo.getString("taobaoData");
                         jo = new JSONObject(taobaoData);
                         String stageAfter = jo.getJSONObject("currentStage").getString("stageText");
-                        Log.farm("农场施肥💩[" + stageAfter + "]");
+                        Log.farm("农场施肥[" + stageAfter + "]");
                         if (!canSpreadManureContinue(stageBefore, stageAfter)) {
                             Statistics.spreadManureToday(userId);
                             return;
@@ -164,7 +164,7 @@ public class AntOrchard {
                 int todayFertilizerNum = fertilizerPacket.getInt("todayFertilizerNum");
                 jo = new JSONObject(AntOrchardRpcCall.extraInfoSet());
                 if ("100".equals(jo.getString("resultCode"))) {
-                    Log.farm("每日肥料💩[" + todayFertilizerNum + "g]");
+                    Log.farm("每日肥料[" + todayFertilizerNum + "g]");
                 } else {
                     Log.i(jo.getString("resultDesc"), jo.toString());
                 }
@@ -196,7 +196,7 @@ public class AntOrchard {
                                 jo = userEverydayGiftItems.getJSONObject(j);
                                 if (jo.getString("itemId").equals(itemId)) {
                                     int awardCount = jo.optInt("awardCount", 1);
-                                    Log.farm("七日礼包🎁[获得肥料]#" + awardCount + "g");
+                                    Log.farm("七日礼包[获得肥料]#" + awardCount + "g");
                                     break;
                                 }
                             }
@@ -235,7 +235,7 @@ public class AntOrchard {
                         String sceneCode = jo.getString("sceneCode");
                         jo = new JSONObject(AntOrchardRpcCall.finishTask(userId, sceneCode, taskId));
                         if (jo.getBoolean("success")) {
-                            Log.farm("农场任务🧾[" + title + "]");
+                            Log.farm("农场任务[" + title + "]");
                         } else {
                             Log.recordLog(jo.getString("desc"), jo.toString());
                         }
@@ -258,7 +258,7 @@ public class AntOrchard {
                 if ("100".equals(joSign.getString("resultCode"))) {
                     int awardCount = joSign.getJSONObject("signTaskInfo").getJSONObject("currentSignItem")
                             .getInt("awardCount");
-                    Log.farm("农场签到📅[获得肥料]#" + awardCount + "g");
+                    Log.farm("农场签到[获得肥料]#" + awardCount + "g");
                 } else {
                     Log.i(joSign.getString("resultDesc"), joSign.toString());
                 }
@@ -287,7 +287,7 @@ public class AntOrchard {
                     String taskPlantType = jo.getString("taskPlantType");
                     jo = new JSONObject(AntOrchardRpcCall.triggerTbTask(taskId, taskPlantType));
                     if ("100".equals(jo.getString("resultCode"))) {
-                        Log.farm("领取奖励🎖️[" + title + "]#" + awardCount + "g肥料");
+                        Log.farm("领取奖励[" + title + "]#" + awardCount + "g肥料");
                     } else {
                         Log.recordLog(jo.getString("resultDesc"), jo.toString());
                     }
@@ -328,7 +328,7 @@ public class AntOrchard {
                             jo = new JSONObject(
                                     AntOrchardRpcCall.triggerSubplotsActivity(activityId, "WISH", optionKey));
                             if ("100".equals(jo.getString("resultCode"))) {
-                                Log.farm("农场许愿✨[每日施肥" + taskRequire + "次]");
+                                Log.farm("农场许愿[每日施肥" + taskRequire + "次]");
                             } else {
                                 Log.recordLog(jo.getString("resultDesc"), jo.toString());
                             }
@@ -336,7 +336,7 @@ public class AntOrchard {
                     } else if ("FINISHED".equals(jo.getString("status"))) {
                         jo = new JSONObject(AntOrchardRpcCall.receiveOrchardRights(activityId, "WISH"));
                         if ("100".equals(jo.getString("resultCode"))) {
-                            Log.farm("许愿奖励✨[肥料" + jo.getInt("amount") + "g]");
+                            Log.farm("许愿奖励[肥料" + jo.getInt("amount") + "g]");
                             querySubplotsActivity(taskRequire);
                             return;
                         } else {

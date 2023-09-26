@@ -31,7 +31,7 @@ public class GreenFinance {
             JSONObject joSelfCollect = new JSONObject(s);
             if (joSelfCollect.getBoolean("success")) {
                 int totalCollectPoint = joSelfCollect.getJSONObject("result").getInt("totalCollectPoint");
-                Log.other("绿色经营📊收集获得" + totalCollectPoint);
+                Log.other("绿色经营收集获得" + totalCollectPoint);
             } else {
                 Log.i(TAG + ".batchSelfCollect", s);
             }
@@ -48,7 +48,7 @@ public class GreenFinance {
             if (jo.getBoolean("success")) {
                 JSONObject result = jo.getJSONObject("result");
                 if (!result.getBoolean("greenFinanceSigned")) {
-                    Log.other("绿色经营📊未开通");
+                    Log.other("绿色经营未开通");
                     return;
                 }
                 JSONObject mcaGreenLeafResult = result.getJSONObject("mcaGreenLeafResult");
@@ -94,7 +94,7 @@ public class GreenFinance {
                     s = GreenFinanceRpcCall.signInTrigger(sceneId);
                     jo = new JSONObject(s);
                     if (jo.getBoolean("success")) {
-                        Log.other("绿色经营📊签到成功");
+                        Log.other("绿色经营签到成功");
                     } else {
                         Log.i(TAG + ".signIn", s);
                     }
@@ -125,7 +125,7 @@ public class GreenFinance {
                                 s = GreenFinanceRpcCall.taskTrigger(taskDetail.getString("taskId"), "send", appletId);
                                 jo = new JSONObject(s);
                                 if (jo.getBoolean("success")) {
-                                    Log.other("绿色经营📊任务完成");
+                                    Log.other("绿色经营任务完成");
                                 }
                             }
                         }

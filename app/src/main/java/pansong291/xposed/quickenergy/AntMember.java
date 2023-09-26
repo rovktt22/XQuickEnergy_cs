@@ -26,7 +26,7 @@ public class AntMember {
                         String s = AntMemberRpcCall.memberSignIn();
                         JSONObject jo = new JSONObject(s);
                         if ("SUCCESS".equals(jo.getString("resultCode"))) {
-                            Log.other("每日签到📅[" + jo.getString("signinPoint") + "积分]#已签到" + jo.getString("signinSumDay")
+                            Log.other("每日签到[" + jo.getString("signinPoint") + "积分]#已签到" + jo.getString("signinSumDay")
                                     + "天");
                             Statistics.memberSignInToday(FriendIdMap.currentUid);
                         } else {
@@ -82,7 +82,7 @@ public class AntMember {
                     s = AntMemberRpcCall.receivePointByUser(id);
                     jo = new JSONObject(s);
                     if ("SUCCESS".equals(jo.getString("resultCode"))) {
-                        Log.other("领取奖励🎖️[" + bizTitle + "]#" + pointAmount + "积分");
+                        Log.other("领取奖励[" + bizTitle + "]#" + pointAmount + "积分");
                     } else {
                         Log.recordLog(jo.getString("resultDesc"), s);
                     }
@@ -137,7 +137,7 @@ public class AntMember {
                     s = AntMemberRpcCall.taskTrigger(appletId, "insportal-marketing");
                     JSONObject joTrigger = new JSONObject(s);
                     if (joTrigger.getBoolean("success")) {
-                        Log.other("安心豆🥔[签到成功]");
+                        Log.other("安心豆[签到成功]");
                     }
                 }
             } else {
@@ -167,7 +167,7 @@ public class AntMember {
                             if (itemExchangeConsultDTO.getBoolean("canExchange") && userCurrentPoint >= pointAmount) {
                                 jo = new JSONObject(AntMemberRpcCall.exchange(itemId, pointAmount));
                                 if (jo.getBoolean("success")) {
-                                    Log.other("安心豆🥔[兑换" + exchangeDetail.getString("itemName") + "]");
+                                    Log.other("安心豆[兑换" + exchangeDetail.getString("itemName") + "]");
                                 } else {
                                     Log.recordLog("exchange", jo.toString());
                                 }
@@ -204,7 +204,7 @@ public class AntMember {
                                 String potentialSize = jo.getString("potentialSize");
                                 jo = new JSONObject(AntMemberRpcCall.collectCreditFeedback(creditFeedbackId));
                                 if (jo.getBoolean("success")) {
-                                    Log.other("收芝麻粒🙇🏻‍♂️[" + title + "]#" + potentialSize + "粒");
+                                    Log.other("收芝麻粒[" + title + "]#" + potentialSize + "粒");
                                 } else {
                                     Log.recordLog(jo.getString("resultView"), jo.toString());
                                 }
@@ -234,7 +234,7 @@ public class AntMember {
                     String activityNo = jo.getString("activityNo");
                     JSONObject joSignIn = new JSONObject(AntMemberRpcCall.signIn(activityNo));
                     if (joSignIn.getBoolean("success")) {
-                        Log.other("商家服务🕴🏻[开门打卡签到成功]");
+                        Log.other("商家服务[开门打卡签到成功]");
                     } else {
                         Log.recordLog(joSignIn.getString("errorMsg"), joSignIn.toString());
                     }
@@ -264,7 +264,7 @@ public class AntMember {
                         String activityPeriodName = jo.getString("activityPeriodName");
                         JSONObject joSignUp = new JSONObject(AntMemberRpcCall.signUp(activityNo));
                         if (joSignUp.getBoolean("success")) {
-                            Log.other("商家服务🕴🏻[" + activityPeriodName + "开门打卡报名]");
+                            Log.other("商家服务[" + activityPeriodName + "开门打卡报名]");
                             return;
                         } else {
                             Log.recordLog(joSignUp.getString("errorMsg"), joSignUp.toString());
@@ -293,7 +293,7 @@ public class AntMember {
                         JSONObject data = jo.getJSONObject("data");
                         int todayReward = data.getInt("todayReward");
                         String widgetName = data.getString("widgetName");
-                        Log.other("商家服务🕴🏻[" + widgetName + "]#" + todayReward + "积分");
+                        Log.other("商家服务[" + widgetName + "]#" + todayReward + "积分");
                     }
                 }
             } else {

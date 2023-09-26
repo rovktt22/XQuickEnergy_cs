@@ -115,7 +115,7 @@ public class AncientTree {
                             Thread.sleep(200);
                             jo = new JSONObject(AncientTreeRpcCall.protect(activityId, projectId, cityCode));
                             if ("SUCCESS".equals(jo.getString("resultCode"))) {
-                                Log.forest("保护古树🎐[" + cityName + "-" + districtName
+                                Log.forest("保护古树[" + cityName + "-" + districtName
                                         + "]#" + age + "年" + name + ",消耗能量" + protectExpense + "g");
                             } else {
                                 Log.recordLog(jo.getString("resultDesc"), jo.toString());

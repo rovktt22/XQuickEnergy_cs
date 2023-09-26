@@ -78,7 +78,7 @@ public class AntCooperate {
             String s = AntCooperateRpcCall.cooperateWater(uid, coopId, count);
             JSONObject jo = new JSONObject(s);
             if ("SUCCESS".equals(jo.getString("resultCode"))) {
-                Log.forest("合种浇水🚿[" + name + "]" + jo.getString("barrageText"));
+                Log.forest("合种浇水[" + name + "]" + jo.getString("barrageText"));
                 Statistics.cooperateWaterToday(FriendIdMap.currentUid, coopId);
             } else {
                 Log.i(TAG, jo.getString("resultDesc"));

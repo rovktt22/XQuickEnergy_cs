@@ -71,7 +71,7 @@ public class AntSports {
                     int coinAmount = jo.getInt("coinAmount");
                     jo = new JSONObject(AntSportsRpcCall.receiveCoinAsset(assetId, coinAmount));
                     if (jo.getBoolean("success")) {
-                        Log.other("收集金币💰[" + coinAmount + "个]");
+                        Log.other("收集金币[" + coinAmount + "个]");
                     } else {
                         Log.recordLog("首页收集金币", jo.toString());
                     }
@@ -177,7 +177,7 @@ public class AntSports {
                 }
                 jo = new JSONObject(s);
                 if ("SUCCESS".equals(jo.getString("resultCode"))) {
-                    Log.other("加入线路🚶🏻‍♂️[" + title + "]");
+                    Log.other("加入线路[" + title + "]");
                     queryMyHomePage(loader);
                 } else {
                     Log.i(TAG, jo.getString("resultDesc"));
@@ -196,14 +196,14 @@ public class AntSports {
             String s = AntSportsRpcCall.go(day, rankCacheKey, stepCount);
             JSONObject jo = new JSONObject(s);
             if ("SUCCESS".equals(jo.getString("resultCode"))) {
-                Log.other("行走线路🚶🏻‍♂️[" + title + "]#前进了" + jo.getInt("goStepCount") + "步");
+                Log.other("行走线路[" + title + "]#前进了" + jo.getInt("goStepCount") + "步");
                 boolean completed = "COMPLETED".equals(jo.getString("completeStatus"));
                 JSONArray ja = jo.getJSONArray("allTreasureBoxModelList");
                 for (int i = 0; i < ja.length(); i++) {
                     parseTreasureBoxModel(loader, ja.getJSONObject(i), rankCacheKey);
                 }
                 if (completed) {
-                    Log.other("完成线路🚶🏻‍♂️[" + title + "]");
+                    Log.other("完成线路[" + title + "]");
                     queryMyHomePage(loader);
                 }
             } else {
@@ -285,7 +285,7 @@ public class AntSports {
                 for (int i = 0; i < ja.length(); i++) {
                     jo = ja.getJSONObject(i);
                     num += jo.getInt("num");
-                    Log.other("运动宝箱🎁[" + num + jo.getString("name") + "]");
+                    Log.other("运动宝箱[" + num + jo.getString("name") + "]");
                 }
                 return num;
             } else if ("TREASUREBOX_NOT_EXIST".equals(jo.getString("resultCode"))) {
@@ -332,7 +332,7 @@ public class AntSports {
             String s = AntSportsRpcCall.donate(donateCharityCoin, projectId);
             JSONObject jo = new JSONObject(s);
             if ("SUCCESS".equals(jo.getString("resultCode"))) {
-                Log.other("捐赠活动❤️[" + title + "][" + donateCharityCoin + "运动币]");
+                Log.other("捐赠活动[" + title + "][" + donateCharityCoin + "运动币]");
             } else {
                 Log.i(TAG, jo.getString("resultDesc"));
             }
@@ -373,7 +373,7 @@ public class AntSports {
                         JSONObject donateExchangeResultModel = jo.getJSONObject("donateExchangeResultModel");
                         int userCount = donateExchangeResultModel.getInt("userCount");
                         double amount = donateExchangeResultModel.getJSONObject("userAmount").getDouble("amount");
-                        Log.other("捐出活动❤️[" + userCount + "步]#兑换" + amount + "元公益金");
+                        Log.other("捐出活动[" + userCount + "步]#兑换" + amount + "元公益金");
                         Statistics.exchangeToday(FriendIdMap.currentUid);
 
                     } else if (s.contains("已捐步")) {
@@ -409,7 +409,7 @@ public class AntSports {
                     jo = new JSONObject(AntSportsRpcCall.userTaskComplete(bizType, taskId));
                     if (jo.getBoolean("success")) {
                         String taskName = taskInfo.optString("taskName", taskId);
-                        Log.other("完成任务🧾[" + taskName + "]");
+                        Log.other("完成任务[" + taskName + "]");
                     } else {
                         Log.recordLog("文体每日任务", jo.toString());
                     }
@@ -458,7 +458,7 @@ public class AntSports {
                             jo = jo.getJSONObject("data");
                             String roundDescription = jo.getString("roundDescription");
                             int targetStepCount = jo.getInt("targetStepCount");
-                            Log.other("走路挑战🚶🏻‍♂️[" + roundDescription + "]#" + targetStepCount);
+                            Log.other("走路挑战[" + roundDescription + "]#" + targetStepCount);
                         } else {
                             Log.recordLog("走路挑战赛", jo.toString());
                         }
@@ -496,7 +496,7 @@ public class AntSports {
                             jo = rightsRuleList.getJSONObject(j);
                             award.append(jo.getString("rightsName")).append("*").append(jo.getInt("baseAwardCount"));
                         }
-                        Log.other("领取奖励🎖️[" + taskName + "]#" + award);
+                        Log.other("领取奖励[" + taskName + "]#" + award);
                     } else {
                         Log.recordLog("文体中心领取奖励", jo.toString());
                     }
@@ -572,7 +572,7 @@ public class AntSports {
                             jo = rightsRuleList.getJSONObject(j).getJSONObject("rightsContent");
                             award.append(jo.getString("name")).append("*").append(jo.getInt("count"));
                         }
-                        Log.other("文体宝箱🎁[" + award + "]");
+                        Log.other("文体宝箱[" + award + "]");
                     } else {
                         Log.recordLog("文体中心开宝箱", jo.toString());
                     }
@@ -590,7 +590,7 @@ public class AntSports {
         try {
             JSONObject jo = new JSONObject(AntSportsRpcCall.pathMapJoin(pathId));
             if (jo.getBoolean("success")) {
-                Log.other("加入线路🚶🏻‍♂️[" + title + "]");
+                Log.other("加入线路[" + title + "]");
                 pathFeatureQuery();
             } else {
                 Log.i(TAG, jo.toString());
@@ -608,11 +608,11 @@ public class AntSports {
             JSONObject jo = new JSONObject(s);
             if (jo.getBoolean("success")) {
                 jo = jo.getJSONObject("userPath");
-                Log.other("行走线路🚶🏻‍♂️[" + title + "]#前进了" + jo.getInt("userPathRecordForwardStepCount") + "步");
+                Log.other("行走线路[" + title + "]#前进了" + jo.getInt("userPathRecordForwardStepCount") + "步");
                 pathMapHomepage(pathId);
                 boolean completed = "COMPLETED".equals(jo.getString("userPathRecordStatus"));
                 if (completed) {
-                    Log.other("完成线路🚶🏻‍♂️[" + title + "]");
+                    Log.other("完成线路[" + title + "]");
                     pathFeatureQuery();
                 }
             } else {
