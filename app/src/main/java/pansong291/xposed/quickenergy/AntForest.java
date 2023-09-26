@@ -147,7 +147,7 @@ public class AntForest {
                     if (TimeUtil.getTimeStr().compareTo("0700") < 0 || TimeUtil.getTimeStr().compareTo("0730") > 0) {
                         popupTask();
                         if (Statistics.canSyncStepToday(FriendIdMap.currentUid)
-                                && TimeUtil.getTimeStr().compareTo("0600") >= 0) {
+                                && TimeUtil.getTimeStr().compareTo("0000") >= 0) {
                             new StepTask(loader).start();
                         }
                         if (Config.energyRain()) {
@@ -1726,8 +1726,7 @@ public class AntForest {
                     Statistics.SyncStepToday(FriendIdMap.currentUid);
                 } else {
                     Log.recordLog("同步运动步数失败:" + step, "");
-                }
-                
+                }                
             } catch (Throwable t) {
                 Log.i(TAG, "StepTask.run err:");
                 Log.printStackTrace(TAG, t);
