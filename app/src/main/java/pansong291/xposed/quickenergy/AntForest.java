@@ -808,7 +808,9 @@ public class AntForest {
                 } else {
                     Log.recordLog(jo.getString("resultDesc"), jo.toString());
                 }
-                Thread.sleep(100);
+        Random rand2 = new Random();
+        int random = rand2.nextInt(1000)+1000;
+                Thread.sleep(random);
             }
         } catch (Throwable t) {
             Log.i(TAG, "returnFriendWater err:");
