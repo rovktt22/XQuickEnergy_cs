@@ -737,7 +737,7 @@ public class Config {
 
     public static void setAnimalConsumeProp(boolean b) {
         getConfig().animalConsumeProp = b;
-        hasChanged = false;
+        hasChanged = true;
     }
 
     public static boolean animalConsumeProp() {
@@ -841,7 +841,7 @@ public class Config {
 
     public static void setUseNewEggTool(boolean b) {
         getConfig().useNewEggTool = b;
-        hasChanged = false;
+        hasChanged = true;
     }
 
     public static boolean useNewEggTool() {
@@ -1378,7 +1378,7 @@ public class Config {
         c.antdodoCollect = true;
         c.antOcean = true;
         c.userPatrol = true;
-        c.animalConsumeProp = true;
+        c.animalConsumeProp = false;
         c.collectGiftBox = true;
         c.totalCertCount = false;
 
@@ -1392,7 +1392,7 @@ public class Config {
         c.receiveFarmToolReward = true;
         c.recordFarmGame = true;
         c.kitchen = true;
-        c.useNewEggTool = true;
+        c.useNewEggTool = false;
         c.harvestProduce = true;
         c.donation = true;
         c.answerQuestion = true;
@@ -1697,7 +1697,7 @@ public class Config {
             config.userPatrol = jo.optBoolean(jn_userPatrol, true);
             Log.i(TAG, jn_userPatrol + ":" + config.userPatrol);
 
-            config.animalConsumeProp = jo.optBoolean(jn_animalConsumeProp, true);
+            config.animalConsumeProp = jo.optBoolean(jn_animalConsumeProp, false);
             Log.i(TAG, jn_animalConsumeProp + ":" + config.animalConsumeProp);
 
             config.collectGiftBox = jo.optBoolean(jn_collectGiftBox, true);
@@ -1740,7 +1740,7 @@ public class Config {
             config.kitchen = jo.optBoolean(jn_kitchen, true);
             Log.i(TAG, jn_kitchen + ":" + config.kitchen);
 
-            config.useNewEggTool = jo.optBoolean(jn_useNewEggTool, true);
+            config.useNewEggTool = jo.optBoolean(jn_useNewEggTool, false);
             Log.i(TAG, jn_useNewEggTool + ":" + config.useNewEggTool);
 
             config.harvestProduce = jo.optBoolean(jn_harvestProduce, true);
