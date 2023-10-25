@@ -403,7 +403,7 @@ public class AntForest {
                     if (wateringBubbles.length() > 0) {
                         int collected = 0;
                         for (int i = 0; i < wateringBubbles.length(); i++) {
-                            String str = AntForestRpcCall.collectEnergy("jiaoshui", selfId,
+                            String str = AntForestRpcCall.collectEnergy(selfId,
                                     wateringBubbles.getJSONObject(i).getLong("id"));
                             JSONObject joEnergy = new JSONObject(str);
                             if ("SUCCESS".equals(joEnergy.getString("resultCode"))) {
@@ -687,7 +687,7 @@ public class AntForest {
                         useDoubleCard();
                         }
                     }
-                    s = AntForestRpcCall.collectEnergy(null, userId, bubbleId);
+                    s = AntForestRpcCall.collectEnergy(userId, bubbleId);
                     lastCollectTime = System.currentTimeMillis();
                 }
             }
