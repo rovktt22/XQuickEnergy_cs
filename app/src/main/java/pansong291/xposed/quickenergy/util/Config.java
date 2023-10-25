@@ -737,7 +737,7 @@ public class Config {
 
     public static void setAnimalConsumeProp(boolean b) {
         getConfig().animalConsumeProp = b;
-        hasChanged = true;
+        hasChanged = false;
     }
 
     public static boolean animalConsumeProp() {
@@ -841,7 +841,7 @@ public class Config {
 
     public static void setUseNewEggTool(boolean b) {
         getConfig().useNewEggTool = b;
-        hasChanged = true;
+        hasChanged = false;
     }
 
     public static boolean useNewEggTool() {
