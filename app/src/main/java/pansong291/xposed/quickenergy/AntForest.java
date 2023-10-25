@@ -682,9 +682,9 @@ public class AntForest {
                         return 0;
                     }
                     if (Config.doubleCard() && doubleEndTime < System.currentTimeMillis()) {
-                        if (Config.isDoubleCardTime() && !selfId.equals(userId) && Statistics.canDoubleToday()) {
-                            exchangeEnergyDoubleClick(1);
-                            useDoubleCard();
+                        if (Config.isDoubleCardTime()){
+                        exchangeEnergyDoubleClick(1);
+                        useDoubleCard();
                         }
                     }
                     s = AntForestRpcCall.collectEnergy(null, userId, bubbleId);
@@ -872,15 +872,15 @@ public class AntForest {
                                     break;
                                 }
                             }
-                       /*} else {
+                       } else {
                             Log.recordLog("兑换次数已到上限！", "");
                             break;
-                        }*/
+                        }
                     }
                 }
-            } else {
+            /*} else {
                 Log.recordLog(jo.getString("desc"), s);
-            }
+            }*/
         } catch (Throwable t) {
             Log.i(TAG, "exchangeEnergyDoubleClick err:");
             Log.printStackTrace(TAG, t);
