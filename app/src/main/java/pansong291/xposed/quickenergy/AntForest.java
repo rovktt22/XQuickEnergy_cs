@@ -872,15 +872,15 @@ public class AntForest {
                                     break;
                                 }
                             }
-                       } else {
+                       /*} else {
                             Log.recordLog("兑换次数已到上限！", "");
                             break;
-                        }
+                        }*/
                     }
                 }
-            /*} else {
+            } else {
                 Log.recordLog(jo.getString("desc"), s);
-            }*/
+            }
         } catch (Throwable t) {
             Log.i(TAG, "exchangeEnergyDoubleClick err:");
             Log.printStackTrace(TAG, t);
