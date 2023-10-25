@@ -96,7 +96,7 @@ public class AntOcean {
                 if ("AVAILABLE".equals(bubble.getString("collectStatus"))) {
                     long bubbleId = bubble.getLong("id");
                     String userId = bubble.getString("userId");
-                    String s = AntForestRpcCall.collectEnergy(null, userId, bubbleId);
+                    String s = AntForestRpcCall.collectEnergy(userId, bubbleId);
                     JSONObject jo = new JSONObject(s);
                     if ("SUCCESS".equals(jo.getString("resultCode"))) {
                         JSONArray retBubbles = jo.optJSONArray("bubbles");
