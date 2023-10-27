@@ -37,13 +37,23 @@ public class AntForestRpcCall {
                         + userId + "\",\"version\":\"" + VERSION + "\"}]");
     }
 
-    public static String collectEnergy(String userId, long bubbleId) {
+    /*public static String collectEnergy(String userId, long bubbleId) {
         String args3;
         String bizType2="xingzou";
             args3 = "[{\"bizType\":\"" + bizType2 + "\",\"bubbleIds\":[" + bubbleId
                     + "],\"source\":\"chInfo_ch_appcenter__chsub_9patch\",\"userId\":\"" + userId + "\",\"version\":\""
                     + VERSION + "\"}]";
-        return RpcUtil.request("alipay.antmember.forest.h5.collectEnergy", args3);}
+        return RpcUtil.request("alipay.antmember.forest.h5.collectEnergy", args3);}*/
+        
+        public static String collectEnergy(String bizType, String userId, long bubbleId) {
+        String args1;
+        if (StringUtil.isEmpty(bizType)) {
+            args1 = "[{\"bubbleIds\":[" + bubbleId + "],\"userId\":\"" + userId + "\"}]";
+        } else {
+            args1 = "[{\"bizType\":\"" + bizType + "\",\"bubbleIds\":[" + bubbleId + "],\"userId\":\"" + userId + "\"}]";
+        }
+        return RpcUtil.request("alipay.antmember.forest.h5.collectEnergy", args1);
+        }
 
     public static String transferEnergy(String targetUser, String bizNo, int energyId) {
         long currentTimeMillis = System.currentTimeMillis();
