@@ -403,7 +403,7 @@ public class AntForest {
                     if (wateringBubbles.length() > 0) {
                         int collected = 0;
                         for (int i = 0; i < wateringBubbles.length(); i++) {
-                            String str = AntForestRpcCall.collectEnergy(selfId,
+                            String str = AntForestRpcCall.collectEnergy("jiaoshui",selfId,
                                     wateringBubbles.getJSONObject(i).getLong("id"));
                             JSONObject joEnergy = new JSONObject(str);
                             if ("SUCCESS".equals(joEnergy.getString("resultCode"))) {
@@ -683,11 +683,11 @@ public class AntForest {
                     }
                     if (Config.doubleCard() && doubleEndTime < System.currentTimeMillis()) {
                         if (Config.isDoubleCardTime()){
-                        //exchangeEnergyDoubleClick(1);
+                        exchangeEnergyDoubleClick(1);
                         useDoubleCard();
                         }
                     }
-                    s = AntForestRpcCall.collectEnergy(userId, bubbleId);
+                    s = AntForestRpcCall.collectEnergy("xingzou",userId, bubbleId);
                     lastCollectTime = System.currentTimeMillis();
                 }
             }
@@ -850,7 +850,7 @@ public class AntForest {
                 }
                 if (skuId != null) {
                     for (int exchangeCount = 1; exchangeCount <= count; exchangeCount++) {
-                        if (Statistics.canExchangeDoubleCardToday()) {
+                       // if (Statistics.canExchangeDoubleCardToday()) {
                             jo = new JSONObject(AntForestRpcCall.queryVitalityStoreIndex());
                             if ("SUCCESS".equals(jo.getString("resultCode"))) {
                                 int totalVitalityAmount = jo.getJSONObject("userVitalityInfoVO")
@@ -872,10 +872,10 @@ public class AntForest {
                                     break;
                                 }
                             }
-                       } else {
+                       /*} else {
                             Log.recordLog("兑换次数已到上限！", "");
                             break;
-                        }
+                        }*/
                     }
                 }
             } else {
