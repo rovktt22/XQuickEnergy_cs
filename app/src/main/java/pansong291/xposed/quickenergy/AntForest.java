@@ -378,7 +378,7 @@ public class AntForest {
                         long bubbleId = bubble.getLong("id");
                         StringBuffer addid=new StringBuffer(bubbleId);
                         for(int q=0;q<jaBubbles.length()-1;q++){
-                        int iti=q+1:
+                        int iti=q+1;
                         JSONObject bubble2 = jaBubbles.getJSONObject(iti);
                         long bubbleId2 = bubble2.getLong("id");
                         addid.append(","+bubbleId2+);}
