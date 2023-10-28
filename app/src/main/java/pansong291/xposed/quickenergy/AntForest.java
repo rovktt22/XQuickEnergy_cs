@@ -376,7 +376,7 @@ public class AntForest {
                     for (int i = 0; i < jaBubbles.length(); i++) {
                         JSONObject bubble = jaBubbles.getJSONObject(i);
                         long bubbleId = bubble.getLong("id");
-                        cctt=Long.toString(bubbleId);
+                        String cctt=Long.toString(bubbleId);
                         StringBuffer addid=new StringBuffer(cctt);
                         for(int q=0;q<jaBubbles.length()-1;q++){
                         int iti=q+1;
@@ -384,12 +384,13 @@ public class AntForest {
                         long bubbleId2 = bubble2.getLong("id");
                         String bbb2=Long.toString(bubbleId2);
                         addid.append(","+bbb2);}
+                        long adad=Long.parseLong(addid);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
                                 if (Config.getDontCollectList().contains(selfId))
                                     Log.recordLog("不收取[" + selfName + "]", ", userId=" + selfId);
                                 else
-                                    collectedEnergy += collectEnergy(selfId, addid, selfName, null);
+                                    collectedEnergy += collectEnergy(selfId, adad, selfName, null);
                                 break;
 
                             case WAITING:
@@ -558,12 +559,13 @@ public class AntForest {
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
                     addid.append(","+bbb2);}
+                    long adad=Long.parseLong(addid);
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
                                 Log.recordLog("不偷取[" + FriendIdMap.getNameById(userId) + "]", ", userId=" + userId);
                             else
-                                collected += collectEnergy(userId, addid, bizNo);
+                                collected += collectEnergy(userId, adad, bizNo);
                             break;
 
                         case WAITING:
