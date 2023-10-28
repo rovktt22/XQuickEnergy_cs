@@ -48,9 +48,10 @@ public class AntForestRpcCall {
         public static String collectEnergy(String bizType, String userId, long bubbleId) {
         String args1;
         if (StringUtil.isEmpty(bizType)) {
-            args1 = "[{\"bubbleIds\":[" + bubbleId + "],\"userId\":\"" + userId + "\"}]";
+            args1 = "[{\"bubbleIds\":[" + bubbleId + "],\"fromAct\":\"BATCH_ROB_ENERGY\",\"userId\":\"" + userId + "\"}]";
         } else {
-            args1 = "[{\"bizType\":\"" + bizType + "\",\"bubbleIds\":[" + bubbleId + "],\"userId\":\"" + userId + "\"}]";
+            args1 = "[{\"bizType\":\"" + bizType + "\",\"bubbleIds\":[" + bubbleId + "],\"fromAct\":\"BATCH_ROB_ENERGY\",\"userId\":\"" + userId + "\"}]";
+            //[{"bizType":"","bubbleIds":[],"fromAct":"BATCH_ROB_ENERGY","source":"chInfo_ch_appcenter__chsub_9patch","userId":"","version":"20230925"}]
         }
         return RpcUtil.request("alipay.antmember.forest.h5.collectEnergy", args1);
         }
