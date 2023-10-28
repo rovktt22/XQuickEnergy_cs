@@ -384,7 +384,8 @@ public class AntForest {
                         long bubbleId2 = bubble2.getLong("id");
                         String bbb2=Long.toString(bubbleId2);
                         addid.append(","+bbb2);}
-                        long adad=Long.parseLong(addid);
+                        String ssuu =new String(addid);
+                        long adad=Long.parseLong(ssuu);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
                                 if (Config.getDontCollectList().contains(selfId))
@@ -559,7 +560,8 @@ public class AntForest {
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
                     addid.append(","+bbb2);}
-                    long adad=Long.parseLong(addid);
+                    String ssuu =new String(addid);
+                    long adad=Long.parseLong(ssuu);
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
