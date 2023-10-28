@@ -759,7 +759,7 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo) 
         return collectEnergy2(userId, bubbleId, bizNo, null);
     }
 
-    private static int collectEnergy2(String userId, long bubbleId, String bizNo, String extra) {
+    private static int collectEnergy2(String userId, String bubbleId, String bizNo, String extra) {
         if (RuntimeInfo.getInstance().getLong(RuntimeInfo.RuntimeInfoKey.ForestPauseTime) > System
                 .currentTimeMillis()) {
             Log.recordLog("异常等待中，暂不收取能量！", "");
