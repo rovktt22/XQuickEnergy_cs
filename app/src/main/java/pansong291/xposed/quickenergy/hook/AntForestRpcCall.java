@@ -45,7 +45,7 @@ public class AntForestRpcCall {
                     + VERSION + "\"}]";
         return RpcUtil.request("alipay.antmember.forest.h5.collectEnergy", args3);}*/
         
-        public static String collectEnergy(String bizType, String userId, long bubbleId) {
+        public static String collectEnergy(String bizType, String userId, String bubbleId) {
         String args1;
         if (StringUtil.isEmpty(bizType)) {
             args1 = "[{\"bubbleIds\":[" + bubbleId + "],\"fromAct\":\"BATCH_ROB_ENERGY\",\"userId\":\"" + userId + "\"}]";
