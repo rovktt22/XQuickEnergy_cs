@@ -376,12 +376,18 @@ public class AntForest {
                     for (int i = 0; i < jaBubbles.length(); i++) {
                         JSONObject bubble = jaBubbles.getJSONObject(i);
                         long bubbleId = bubble.getLong("id");
+                        StringBuffer addid=new StringBuffer(bubbleId);
+                        for(int q=0;q<jaBubbles.length()-1;q++){
+                        int iti=q+1:
+                        JSONObject bubble2 = jaBubbles.getJSONObject(iti);
+                        long bubbleId2 = bubble2.getLong("id");
+                        addid.append(","+bubbleId2+);}
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
                                 if (Config.getDontCollectList().contains(selfId))
                                     Log.recordLog("不收取[" + selfName + "]", ", userId=" + selfId);
                                 else
-                                    collectedEnergy += collectEnergy(selfId, bubbleId, selfName, null);
+                                    collectedEnergy += collectEnergy(selfId, addid, selfName, null);
                                 break;
 
                             case WAITING:
@@ -542,12 +548,18 @@ public class AntForest {
                 for (int i = 0; i < jaBubbles.length(); i++) {
                     JSONObject bubble = jaBubbles.getJSONObject(i);
                     long bubbleId = bubble.getLong("id");
+                    StringBuffer addid=new StringBuffer(bubbleId);
+                    for(int q=0;q<jaBubbles.length()-1;q++){
+                    int iti=q+1;
+                    JSONObject bubble2 = jaBubbles.getJSONObject(iti);
+                    long bubbleId2 = bubble2.getLong("id");
+                    addid.append(","+bubbleId2+);}
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
                                 Log.recordLog("不偷取[" + FriendIdMap.getNameById(userId) + "]", ", userId=" + userId);
                             else
-                                collected += collectEnergy(userId, bubbleId, bizNo);
+                                collected += collectEnergy(userId, addid, bizNo);
                             break;
 
                         case WAITING:
