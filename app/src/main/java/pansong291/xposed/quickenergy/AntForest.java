@@ -380,8 +380,8 @@ public class AntForest {
                         for(int q=0;q<jaBubbles.length()-1;q++){
                         int iti=q+1;
                         JSONObject bubble2 = jaBubbles.getJSONObject(iti);
-                        long bubbleId2 = bubble2.getLong("id");
-                        addid.append(","+bubbleId2+);}
+                        String bubbleId2 = bubble2.getLong("id");
+                        addid.append(","+bubbleId2);}
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
                                 if (Config.getDontCollectList().contains(selfId))
@@ -552,8 +552,8 @@ public class AntForest {
                     for(int q=0;q<jaBubbles.length()-1;q++){
                     int iti=q+1;
                     JSONObject bubble2 = jaBubbles.getJSONObject(iti);
-                    long bubbleId2 = bubble2.getLong("id");
-                    addid.append(","+bubbleId2+);}
+                    String bubbleId2 = bubble2.getLong("id");
+                    addid.append(","+bubbleId2);}
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
