@@ -376,12 +376,14 @@ public class AntForest {
                     for (int i = 0; i < jaBubbles.length(); i++) {
                         JSONObject bubble = jaBubbles.getJSONObject(i);
                         long bubbleId = bubble.getLong("id");
-                        StringBuffer addid=new StringBuffer(bubbleId);
+                        cctt=Long.toString(bubbleId);
+                        StringBuffer addid=new StringBuffer(cctt);
                         for(int q=0;q<jaBubbles.length()-1;q++){
                         int iti=q+1;
                         JSONObject bubble2 = jaBubbles.getJSONObject(iti);
-                        String bubbleId2 = bubble2.getLong("id");
-                        addid.append(","+bubbleId2);}
+                        long bubbleId2 = bubble2.getLong("id");
+                        String bbb2=StrUtil.toString(bubbleId2);
+                        addid.append(","+bbb2);}
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
                                 if (Config.getDontCollectList().contains(selfId))
@@ -548,12 +550,14 @@ public class AntForest {
                 for (int i = 0; i < jaBubbles.length(); i++) {
                     JSONObject bubble = jaBubbles.getJSONObject(i);
                     long bubbleId = bubble.getLong("id");
-                    StringBuffer addid=new StringBuffer(bubbleId);
+                    String cctt=StrUtil.toString(bubbleId);
+                    StringBuffer addid=new StringBuffer(cctt);
                     for(int q=0;q<jaBubbles.length()-1;q++){
                     int iti=q+1;
                     JSONObject bubble2 = jaBubbles.getJSONObject(iti);
-                    String bubbleId2 = bubble2.getLong("id");
-                    addid.append(","+bubbleId2);}
+                    long bubbleId2 = bubble2.getLong("id");
+                    String bbb2=StrUtil.toString(bubbleId2);
+                    addid.append(","+bbb2);}
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
