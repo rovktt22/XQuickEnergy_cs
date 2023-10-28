@@ -383,15 +383,15 @@ public class AntForest {
                         JSONObject bubble2 = jaBubbles.getJSONObject(iti);
                         long bubbleId2 = bubble2.getLong("id");
                         String bbb2=Long.toString(bubbleId2);
-                        addid.append("10291101"+bbb2);}
-                        String ssuu =new String(addid);
-                        long adad=Long.parseLong(ssuu);
+                        addid.append(","+bbb2);}
+                        String adad =new String(addid);
+                        //long adad=Long.parseLong(ssuu);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
                                 if (Config.getDontCollectList().contains(selfId))
                                     Log.recordLog("不收取[" + selfName + "]", ", userId=" + selfId);
                                 else
-                                    collectedEnergy += collectEnergy(selfId, adad, selfName, null);
+                                    collectedEnergy += collectEnergy2(selfId, adad, selfName, null);
                                 break;
 
                             case WAITING:
@@ -559,15 +559,15 @@ public class AntForest {
                     JSONObject bubble2 = jaBubbles.getJSONObject(iti);
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
-                    addid.append("10291101"+bbb2);}
-                    String ssuu =new String(addid);
-                    long adad=Long.parseLong(ssuu);
+                    addid.append(","+bbb2);}
+                    String adad =new String(addid);
+                    //long adad=Long.parseLong(ssuu);
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
                                 Log.recordLog("不偷取[" + FriendIdMap.getNameById(userId) + "]", ", userId=" + userId);
                             else
-                                collected += collectEnergy(userId, adad, bizNo);
+                                collected += collectEnergy2(userId, adad, bizNo);
                             break;
 
                         case WAITING:
@@ -754,6 +754,95 @@ public class AntForest {
         }
         return collected;
     }
+
+private static int collectEnergy2(String userId, String bubbleId, String bizNo) {
+        return collectEnergy2(userId, bubbleId, bizNo, null);
+    }
+
+    private static int collectEnergy2(String userId, long bubbleId, String bizNo, String extra) {
+        if (RuntimeInfo.getInstance().getLong(RuntimeInfo.RuntimeInfoKey.ForestPauseTime) > System
+                .currentTimeMillis()) {
+            Log.recordLog("异常等待中，暂不收取能量！", "");
+            return 0;
+        }
+        int collected = 0;
+        try {
+            while (checkCollectLimited()) {
+                Thread.sleep(1000);
+            }
+        } catch (Throwable th) {
+            Log.printStackTrace("到达分钟限制，等待失败！", th);
+            return 0;
+        }
+        // if (checkCollectLimited()) {
+        // return 0;
+        // }
+        try {
+            String s = "{\"resultCode\": \"FAILED\"}";
+            if (Config.collectInterval() > 0) {
+                synchronized (collectLock) {
+                    while (System.currentTimeMillis() - lastCollectTime < Config.collectInterval()) {
+                        Thread.sleep(System.currentTimeMillis() - lastCollectTime);
+                    }
+                    if (RuntimeInfo.getInstance().getLong(RuntimeInfo.RuntimeInfoKey.ForestPauseTime) > System
+                            .currentTimeMillis()) {
+                        Log.recordLog("异常等待中，暂不收取能量！", "");
+                        return 0;
+                    }
+                    if (Config.doubleCard() && doubleEndTime < System.currentTimeMillis()) {
+                        if (Config.isDoubleCardTime()){
+                        exchangeEnergyDoubleClick(1);
+                        useDoubleCard();
+                        }
+                    }
+                    s = AntForestRpcCall.collectEnergy2("xingzou",userId, bubbleId);
+                    lastCollectTime = System.currentTimeMillis();
+                }
+            }
+            waitCollectBubbleIds.remove(bubbleId);
+            JSONObject jo = new JSONObject(s);
+            if ("SUCCESS".equals(jo.getString("resultCode"))) {
+                offerCollectQueue();
+                JSONArray jaBubbles = jo.getJSONArray("bubbles");
+                jo = jaBubbles.getJSONObject(0);
+                collected += jo.getInt("collectedEnergy");
+                FriendManager.friendWatch(userId, collected);
+                if (collected > 0) {
+                    totalCollected += collected;
+                    Statistics.addData(Statistics.DataType.COLLECTED, collected);
+                    String str = "收能量[" + FriendIdMap.getNameById(userId) + "]#" + collected + "g";
+                    if (jo.has("robbedTwice") && jo.getBoolean("robbedTwice")) {
+                        str =str + "(双击)";}
+                    Log.forest(str);
+                    AntForestToast.show(str);
+                } else {
+                    Log.recordLog("收取[" + FriendIdMap.getNameById(userId) + "]的能量失败",
+                            "，UserID：" + userId + "，BubbleId：" + bubbleId);
+                }
+                if (jo.getBoolean("canBeRobbedAgain")) {
+                    collected += collectEnergy2(userId, bubbleId, null, "2jk");
+                }
+                if (bizNo == null || bizNo.isEmpty())
+                    return collected;
+                int returnCount = 0;
+                if (Config.returnWater33() > 0 && collected >= Config.returnWater33())
+                    returnCount = 33;
+                else if (Config.returnWater18() > 0 && collected >= Config.returnWater18())
+                    returnCount = 18;
+                else if (Config.returnWater10() > 0 && collected >= Config.returnWater10())
+                    returnCount = 10;
+                if (returnCount > 0)
+                    returnFriendWater(userId, bizNo, 1, returnCount);
+            } else {
+                Log.recordLog("[" + FriendIdMap.getNameById(userId) + "]" + jo.getString("resultDesc"), s);
+            }
+        } catch (Throwable t) {
+            Log.i(TAG, "collectEnergy err:");
+            Log.printStackTrace(TAG, t);
+        }
+        return collected;
+    }
+
 
     private static int forFriendCollectEnergy(String targetUserId, long bubbleId) {
         int helped = 0;
