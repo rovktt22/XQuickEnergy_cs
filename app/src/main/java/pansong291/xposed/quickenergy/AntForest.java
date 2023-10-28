@@ -383,15 +383,15 @@ public class AntForest {
                         JSONObject bubble2 = jaBubbles.getJSONObject(iti);
                         long bubbleId2 = bubble2.getLong("id");
                         String bbb2=Long.toString(bubbleId2);
-                        addid.append(","+bbb2);}
+                        addid.append("10291101"+bbb2);}
                         String ssuu =new String(addid);
-                        //long adad=Long.parseLong(ssuu);
+                        long adad=Long.parseLong(ssuu);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
                                 if (Config.getDontCollectList().contains(selfId))
                                     Log.recordLog("不收取[" + selfName + "]", ", userId=" + selfId);
                                 else
-                                    collectedEnergy += collectEnergy(selfId, ssuu, selfName, null);
+                                    collectedEnergy += collectEnergy(selfId, adad, selfName, null);
                                 break;
 
                             case WAITING:
@@ -559,15 +559,15 @@ public class AntForest {
                     JSONObject bubble2 = jaBubbles.getJSONObject(iti);
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
-                    addid.append(","+bbb2);}
+                    addid.append("10291101"+bbb2);}
                     String ssuu =new String(addid);
-                    //long adad=Long.parseLong(ssuu);
+                    long adad=Long.parseLong(ssuu);
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
                                 Log.recordLog("不偷取[" + FriendIdMap.getNameById(userId) + "]", ", userId=" + userId);
                             else
-                                collected += collectEnergy(userId, ssuu, bizNo);
+                                collected += collectEnergy(userId, adad, bizNo);
                             break;
 
                         case WAITING:
@@ -667,11 +667,11 @@ public class AntForest {
         }
     }
 
-    private static int collectEnergy(String userId, String bubbleId, String bizNo) {
+    private static int collectEnergy(String userId, long bubbleId, String bizNo) {
         return collectEnergy(userId, bubbleId, bizNo, null);
     }
 
-    private static int collectEnergy(String userId, String bubbleId, String bizNo, String extra) {
+    private static int collectEnergy(String userId, long bubbleId, String bizNo, String extra) {
         if (RuntimeInfo.getInstance().getLong(RuntimeInfo.RuntimeInfoKey.ForestPauseTime) > System
                 .currentTimeMillis()) {
             Log.recordLog("异常等待中，暂不收取能量！", "");
