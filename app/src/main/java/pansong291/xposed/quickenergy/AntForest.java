@@ -373,7 +373,7 @@ public class AntForest {
                 }
                 if (Config.collectEnergy()) {
                     Log.recordLog("进入[" + selfName + "]的蚂蚁森林", "");
-                    for (int i = 0; i < 1; i++) {
+                    for (int i = 0; i < jaBubbles.length(); i++) {
                         JSONObject bubble = jaBubbles.getJSONObject(i);
                         long bubbleId = bubble.getLong("id");
                         String addid=Long.toString(bubbleId);
@@ -549,7 +549,7 @@ public class AntForest {
                     }
                 }
                 int collected = 0;
-                for (int i = 0; i < 1; i++) {
+                for (int i = 0; i < jaBubbles.length(); i++) {
                     JSONObject bubble = jaBubbles.getJSONObject(i);
                     long bubbleId = bubble.getLong("id");
                     String addid=Long.toString(bubbleId);
