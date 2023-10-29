@@ -377,7 +377,7 @@ public class AntForest {
                         JSONObject bubble = jaBubbles.getJSONObject(i);
                         long bubbleId = bubble.getLong("id");
                         String cctt=Long.toString(bubbleId);
-                        String cctt=Long.toString(bubbleId);
+                        //String cctt=Long.toString(bubbleId);
                         StringBuffer addid=new StringBuffer(cctt);
                         long ccc=jaBubbles.length()-1;
                         for(int q=1;q<ccc;q++){
