@@ -376,15 +376,17 @@ public class AntForest {
                     for (int i = 0; i < jaBubbles.length(); i++) {
                         JSONObject bubble = jaBubbles.getJSONObject(i);
                         long bubbleId = bubble.getLong("id");
+                        String cctt=Long.toString(bubbleId);
+                        StringBuffer addid=new StringBuffer(cctt);
                         //String cctt=Long.toString(bubbleId);
-                        //int ccc=jaBubbles.length();
-                        for(int q=0;q<jaBubbles.length();q++){
+                        long ccc=jaBubbles.length()-1;
+                        for(int q=1;q<ccc;q++){
                         //int iti=q;
                         JSONObject bubble2 = jaBubbles.getJSONObject(q);
                         long bubbleId2 = bubble2.getLong("id");
                         String bbb2=Long.toString(bubbleId2);
                         StringBuffer addid=new StringBuffer(bbb2);
-                        addid.append(","bbb2);
+                        addid.append(","+bbb2);
                         String adad =new String(addid);
                         //adad=adad.replace(","+bubbleId2+,"");
                         //long adad=Long.parseLong(ssuu);
@@ -554,16 +556,16 @@ public class AntForest {
                 for (int i = 0; i < jaBubbles.length(); i++) {
                     JSONObject bubble = jaBubbles.getJSONObject(i);
                     long bubbleId = bubble.getLong("id");
-                    //String cctt=Long.toString(bubbleId);
-                    //StringBuffer addid=new StringBuffer(cctt);
-                    //int ccc=jaBubbles.length();
-                    for(int q=0;q<jaBubbles.length();q++){
+                    String cctt=Long.toString(bubbleId);
+                    StringBuffer addid=new StringBuffer(cctt);
+                    long ccc=jaBubbles.length()-1;
+                    for(int q=1;q<ccc;q++){
                         //int iti=q;
                     JSONObject bubble2 = jaBubbles.getJSONObject(q);
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
-                    StringBuffer addid=new StringBuffer(bbb2);
-                    addid.append(","bbb2);
+                    //StringBuffer addid=new StringBuffer(bbb2);
+                    addid.append(","+bbb2);
                     String adad =new String(addid);
                     //adad=adad.replace(","+bubbleId2+,"");
                     //long adad=Long.parseLong(ssuu);
