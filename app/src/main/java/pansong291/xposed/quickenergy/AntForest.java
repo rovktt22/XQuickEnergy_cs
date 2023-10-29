@@ -373,26 +373,25 @@ public class AntForest {
                 }
                 if (Config.collectEnergy()) {
                     Log.recordLog("进入[" + selfName + "]的蚂蚁森林", "");
-                    for (int i = 0; i < 1; i++) {
+                    //for (int i = 0; i < 1; i++) {
                         JSONObject bubble = jaBubbles.getJSONObject(i);
                         long bubbleId = bubble.getLong("id");
-                        String cctt=Long.toString(bubbleId);
-                        StringBuffer addid=new StringBuffer(cctt);
-                        int ccc=jaBubbles.length();
-                        for(int q=0;q<ccc;q++){
+                        String addid=Long.toString(bubbleId);
+                        //StringBuffer addid=new String(cctt);
+                        for(int q=0;q<jaBubbles.length();q++){
                         q=q+1;
                         JSONObject bubble2 = jaBubbles.getJSONObject(q);
                         long bubbleId2 = bubble2.getLong("id");
                         String bbb2=Long.toString(bubbleId2);
-                        addid.append(","+bbb2);
+                        addid=addid+","+bbb2;
                         }
-                        String adad=new String(addid);
+                        //String adad=new String(addid);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
                                 if (Config.getDontCollectList().contains(selfId))
                                     Log.recordLog("不收取[" + selfName + "]", ", userId=" + selfId);
                                 else
-                                    collectedEnergy += collectEnergy2(selfId, adad, selfName, null);
+                                    collectedEnergy += collectEnergy2(selfId, addid, selfName, null);
                                 break;
 
                             case WAITING:
@@ -405,7 +404,7 @@ public class AntForest {
                                     setLaterTime(produceTime);
                                 break;
                         }
-                    }
+                    //}
                 }
                 if (Config.collectWateringBubble()) {
                     JSONArray wateringBubbles = joHomePage.has("wateringBubbles")
@@ -550,28 +549,27 @@ public class AntForest {
                     }
                 }
                 int collected = 0;
-                for (int i = 0; i < 1; i++) {
+                //for (int i = 0; i < 1; i++) {
                     JSONObject bubble = jaBubbles.getJSONObject(i);
                     long bubbleId = bubble.getLong("id");
-                    String cctt=Long.toString(bubbleId);
-                    StringBuffer addid=new StringBuffer(cctt);
-                    int ccc=jaBubbles.length();
-                    for(int q=0;q<ccc;q++){
+                    String addid=Long.toString(bubbleId);
+                    //String addid=cctt;
+                    for(int q=0;q<jaBubbles.length();q++){
                     q=q+1;
                         //int iti=q;
                     JSONObject bubble2 = jaBubbles.getJSONObject(q);
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
-                    addid.append(","+bbb2);
+                    addid=addid+","+bbb2);
                     //StringBuffer addid=new StringBuffer(bbb2);
                     }
-                    String adad=new String(addid);
+                    //String adad=new String(addid);
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
                                 Log.recordLog("不偷取[" + FriendIdMap.getNameById(userId) + "]", ", userId=" + userId);
                             else
-                                collected += collectEnergy2(userId, adad, bizNo);
+                                collected += collectEnergy2(userId, addid, bizNo);
                             break;
 
                         case WAITING:
@@ -584,7 +582,7 @@ public class AntForest {
                                 setLaterTime(produceTime);
                             break;
                     }
-                }
+                //}
                 collectedEnergy += collected;
                 onForestEnd();
             } else {
