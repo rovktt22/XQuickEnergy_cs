@@ -560,7 +560,7 @@ public class AntForest {
                     JSONObject bubble2 = jaBubbles.getJSONObject(q);
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
-                    addid=addid+","+bbb2);
+                    addid=addid+","+bbb2;
                     //StringBuffer addid=new StringBuffer(bbb2);
                     }
                     //String adad=new String(addid);
