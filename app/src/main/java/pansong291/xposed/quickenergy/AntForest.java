@@ -376,22 +376,22 @@ public class AntForest {
                     for (int i = 0; i < jaBubbles.length(); i++) {
                         JSONObject bubble = jaBubbles.getJSONObject(i);
                         long bubbleId = bubble.getLong("id");
-                        String addid=Long.toString(bubbleId);
-                        //StringBuffer addid=new String(cctt);
+                        String cctt=Long.toString(bubbleId);
+                        StringBuffer addid=new String(cctt);
                         for(int q=0;q<jaBubbles.length();q++){
                         //q=q+1;
                         JSONObject bubble2 = jaBubbles.getJSONObject(q);
                         long bubbleId2 = bubble2.getLong("id");
                         String bbb2=Long.toString(bubbleId2);
-                        addid=addid+","+bbb2;
+                        addid.append(","+bbb2);
                         }
-                        //String adad=new String(addid);
+                        String adad=new String(addid);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
                                 if (Config.getDontCollectList().contains(selfId))
                                     Log.recordLog("不收取[" + selfName + "]", ", userId=" + selfId);
                                 else
-                                    collectedEnergy += collectEnergy2(selfId, addid, selfName, null);
+                                    collectedEnergy += collectEnergy2(selfId, adad, selfName, null);
                                 break;
 
                             case WAITING:
@@ -552,7 +552,8 @@ public class AntForest {
                 for (int i = 0; i < jaBubbles.length(); i++) {
                     JSONObject bubble = jaBubbles.getJSONObject(i);
                     long bubbleId = bubble.getLong("id");
-                    String addid=Long.toString(bubbleId);
+                    String cctt=Long.toString(bubbleId);
+                    StringBuffer addid=new StringBuffer(cctt);
                     //String addid=cctt;
                     for(int q=0;q<jaBubbles.length();q++){
                     //q=q+1;
@@ -560,16 +561,17 @@ public class AntForest {
                     JSONObject bubble2 = jaBubbles.getJSONObject(q);
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
-                    addid=addid+","+bbb2;
+                    addid.append(","+bbb2);
+                    //addid=+bbb2;
                     //StringBuffer addid=new StringBuffer(bbb2);
                     }
-                    //String adad=new String(addid);
+                    String adad=new String(addid);
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
                                 Log.recordLog("不偷取[" + FriendIdMap.getNameById(userId) + "]", ", userId=" + userId);
                             else
-                                collected += collectEnergy2(userId, addid, bizNo);
+                                collected += collectEnergy2(userId, adad, bizNo);
                             break;
 
                         case WAITING:
