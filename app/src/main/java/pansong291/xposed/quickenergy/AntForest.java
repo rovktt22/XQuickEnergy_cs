@@ -388,7 +388,7 @@ public class AntForest {
                         //StringBuffer addid=new StringBuffer(bbb2);
                         addid.append(","+bbb2);
                         //String adad =new String(addid);
-                        StringBuffer addid=new StringBuffer(bbb2);
+                        //StringBuffer addid=new StringBuffer(bbb2);
                         String adad =new String(addid);}
                         //adad=adad.replace(","+bubbleId2+,"");
                         //long adad=Long.parseLong(ssuu);
@@ -567,7 +567,7 @@ public class AntForest {
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
                     addid.append(","+bbb2);
-                    StringBuffer addid=new StringBuffer(bbb2);
+                    //StringBuffer addid=new StringBuffer(bbb2);
                     String adad =new String(addid);}
 
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
