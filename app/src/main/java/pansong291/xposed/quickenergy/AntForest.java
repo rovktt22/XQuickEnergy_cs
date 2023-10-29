@@ -387,7 +387,7 @@ public class AntForest {
                         String bbb2=Long.toString(bubbleId2);
                         StringBuffer addid=new StringBuffer(bbb2);
                         addid.append(","+bbb2);
-                        String adad =new String(addid);
+                        String adad =new String(addid);}
                         //adad=adad.replace(","+bubbleId2+,"");
                         //long adad=Long.parseLong(ssuu);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
@@ -564,11 +564,10 @@ public class AntForest {
                     JSONObject bubble2 = jaBubbles.getJSONObject(q);
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
-                    //StringBuffer addid=new StringBuffer(bbb2);
+                    StringBuffer addid=new StringBuffer(bbb2);
                     addid.append(","+bbb2);
-                    String adad =new String(addid);
-                    //adad=adad.replace(","+bubbleId2+,"");
-                    //long adad=Long.parseLong(ssuu);
+                    String adad =new String(addid);}
+
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
