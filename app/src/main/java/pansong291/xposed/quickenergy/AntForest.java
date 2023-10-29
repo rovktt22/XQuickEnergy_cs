@@ -386,7 +386,7 @@ public class AntForest {
                         String bbb2=Long.toString(bubbleId2);
                         addid.append(","+bbb2);}
                         String adad =new String(addid);
-                        adad=adad.replace(","+bubbleId2,"");
+                        adad=adad.replace(","+bubbleId2+,"");
                         //long adad=Long.parseLong(ssuu);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
@@ -564,7 +564,7 @@ public class AntForest {
                     String bbb2=Long.toString(bubbleId2);
                     addid.append(","+bbb2);}
                     String adad =new String(addid);
-                    adad=adad.replace(","+bubbleId2,"");
+                    adad=adad.replace(","+bubbleId2+,"");
                     //long adad=Long.parseLong(ssuu);
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
