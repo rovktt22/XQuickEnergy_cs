@@ -373,18 +373,19 @@ public class AntForest {
                 }
                 if (Config.collectEnergy()) {
                     Log.recordLog("进入[" + selfName + "]的蚂蚁森林", "");
-                    for (int i = 0; i < jaBubbles.length(); i++) {
+                    for (int i = 0; i < 1; i++) {
                         JSONObject bubble = jaBubbles.getJSONObject(i);
                         long bubbleId = bubble.getLong("id");
                         String cctt=Long.toString(bubbleId);
                         StringBuffer addid=new StringBuffer(cctt);
-                        int ccc=jaBubbles.length()-1;
+                        if(jaBubbles.length()<>1)
+                        {int ccc=jaBubbles.length()-1;
                         for(int q=1;q<ccc;q++){
                         JSONObject bubble2 = jaBubbles.getJSONObject(q);
                         long bubbleId2 = bubble2.getLong("id");
                         String bbb2=Long.toString(bubbleId2);
                         addid.append(","+bbb2);
-                        }
+                        }}
                         String adad=new String(addid);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
@@ -549,20 +550,21 @@ public class AntForest {
                     }
                 }
                 int collected = 0;
-                for (int i = 0; i < jaBubbles.length(); i++) {
+                for (int i = 0; i < 1; i++) {
                     JSONObject bubble = jaBubbles.getJSONObject(i);
                     long bubbleId = bubble.getLong("id");
                     String cctt=Long.toString(bubbleId);
                     StringBuffer addid=new StringBuffer(cctt);
                     int ccc=jaBubbles.length()-1;
-                    for(int q=1;q<ccc;q++){
+                    if(jaBubbles.length()<>1)
+                    {for(int q=1;q<ccc;q++){
                         //int iti=q;
                     JSONObject bubble2 = jaBubbles.getJSONObject(q);
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
                     addid.append(","+bbb2);
                     //StringBuffer addid=new StringBuffer(bbb2);
-                    }
+                    }}
                     String adad=new String(addid);
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
