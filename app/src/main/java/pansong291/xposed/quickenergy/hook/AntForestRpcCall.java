@@ -47,26 +47,10 @@ public class AntForestRpcCall {
         
         public static String collectEnergy(String bizType, String userId, long bubbleId) {
         String args1;
-        //String bubb=Long.toString(bubbleId);
-        //String bubbleId2=bubb.replace("10291101",",");
         if (StringUtil.isEmpty(bizType)) {
-            args1 = "[{\"bubbleIds\":[" + bubbleId + "],\"fromAct\":\"BATCH_ROB_ENERGY\",\"userId\":\"" + userId + "\"}]";
+            args1 = "[{\"bubbleIds\":[" + bubbleId + "],\"userId\":\"" + userId + "\"}]";
         } else {
-            args1 = "[{\"bizType\":\"" + bizType + "\",\"bubbleIds\":[" + bubbleId + "],\"fromAct\":\"BATCH_ROB_ENERGY\",\"userId\":\"" + userId + "\"}]";
-            //[{"bizType":"","bubbleIds":[],"fromAct":"BATCH_ROB_ENERGY","source":"chInfo_ch_appcenter__chsub_9patch","userId":"","version":"20230925"}]
-        }
-        return RpcUtil.request("alipay.antmember.forest.h5.collectEnergy", args1);
-        }
-
-        public static String collectEnergy2(String bizType, String userId, String bubbleId) {
-        String args1;
-        //String bubb=Long.toString(bubbleId);
-        //String bubbleId2=bubb.replace("10291101",",");
-        if (StringUtil.isEmpty(bizType)) {
-            args1 = "[{\"bubbleIds\":[" + bubbleId + "],\"fromAct\":\"BATCH_ROB_ENERGY\",\"userId\":\"" + userId + "\"}]";
-        } else {
-            args1 = "[{\"bizType\":\"\",\"bubbleIds\":[" + bubbleId + "],\"fromAct\":\"BATCH_ROB_ENERGY\",\"source\":\"chInfo_ch_appcenter__chsub_9patch\",\"userId\":\"" + userId + "\",\"version\":\"20230925\"}]";
-            //[{"bizType":"","bubbleIds":[],"fromAct":"BATCH_ROB_ENERGY","source":"chInfo_ch_appcenter__chsub_9patch","userId":"","version":"20230925"}]
+            args1 = "[{\"bizType\":\"" + bizType + "\",\"bubbleIds\":[" + bubbleId + "],\"userId\":\"" + userId + "\"}]";
         }
         return RpcUtil.request("alipay.antmember.forest.h5.collectEnergy", args1);
         }
