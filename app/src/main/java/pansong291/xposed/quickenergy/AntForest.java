@@ -393,8 +393,9 @@ public class AntForest {
                         {addid.append(bbb2+",");}
                         }
                         String adad=new String(addid);
+                        String ztckk=new String(ztck);
                         //AntForestToast.show(addid);
-                        Log.forest(ztck);
+                        Log.forest(ztckk);
                         Log.forest(adad);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
@@ -578,8 +579,9 @@ public class AntForest {
                     }
                     //AntForestToast.show(addid);
                     String adad=new String(addid);
+                    String ztckk=new String(ztck);
                     Log.forest(adad);
-                    Log.forest(ztck);
+                    Log.forest(ztckk);
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
