@@ -391,7 +391,7 @@ public class AntForest {
                         }
                         String adad=new String(addid);
                         //AntForestToast.show(addid);
-                        Log.forest(addid);
+                        Log.forest(adad);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
                                 if (Config.getDontCollectList().contains(selfId))
@@ -571,7 +571,7 @@ public class AntForest {
                     }
                     //AntForestToast.show(addid);
                     String adad=new String(addid);
-                    Log.forest(addid);
+                    Log.forest(adad);
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
