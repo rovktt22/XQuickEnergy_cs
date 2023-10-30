@@ -384,7 +384,8 @@ public class AntForest {
                         long bubbleId2 = bubble2.getLong("id");
                         String bbb2=Long.toString(bubbleId2);
                         //addid.append(","+bbb2);
-                        if(jaBubbles.length()==q)
+                        int bvid=q+1;
+                        if(jaBubbles.length()==bvid)
                         {addid.append(bbb2);}
                         else
                         {addid.append(bbb2+",");}
@@ -564,7 +565,8 @@ public class AntForest {
                     JSONObject bubble2 = jaBubbles.getJSONObject(q);
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
-                    if(jaBubbles.length()==q)
+                    int bpid=q+1;
+                    if(jaBubbles.length()==bpid)
                     {addid.append(bbb2);}
                     else
                     {addid.append(bbb2+",");}
