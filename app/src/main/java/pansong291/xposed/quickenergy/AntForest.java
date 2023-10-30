@@ -378,6 +378,7 @@ public class AntForest {
                         long bubbleId = bubble.getLong("id");
                         String cctt=Long.toString(bubbleId);
                         StringBuffer addid=new StringBuffer();
+                        StringBuffer ztck= new StringBuffer();
                         for(int q=0;q<jaBubbles.length();q++){
                         //q=q+1;
                         JSONObject bubble2 = jaBubbles.getJSONObject(q);
@@ -385,6 +386,7 @@ public class AntForest {
                         String bbb2=Long.toString(bubbleId2);
                         //addid.append(","+bbb2);
                         int bvid=q+1;
+                        ztck.append(CollectStatus.valueOf(bubble.getString("collectStatus")));
                         if(jaBubbles.length()==bvid)
                         {addid.append(bbb2);}
                         else
@@ -392,6 +394,7 @@ public class AntForest {
                         }
                         String adad=new String(addid);
                         //AntForestToast.show(addid);
+                        Log.forest(ztck);
                         Log.forest(adad);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
@@ -561,10 +564,12 @@ public class AntForest {
                     long bubbleId = bubble.getLong("id");
                     String cctt=Long.toString(bubbleId);
                     StringBuffer addid=new StringBuffer();
+                    StringBuffer ztck= new StringBuffer();
                     for(int q=0;q<jaBubbles.length();q++){
                     JSONObject bubble2 = jaBubbles.getJSONObject(q);
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
+                    ztck.append(CollectStatus.valueOf(bubble.getString("collectStatus")));
                     int bpid=q+1;
                     if(jaBubbles.length()==bpid)
                     {addid.append(bbb2);}
@@ -574,6 +579,7 @@ public class AntForest {
                     //AntForestToast.show(addid);
                     String adad=new String(addid);
                     Log.forest(adad);
+                    Log.forest(ztck);
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
