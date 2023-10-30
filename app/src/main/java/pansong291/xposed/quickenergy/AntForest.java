@@ -390,6 +390,7 @@ public class AntForest {
                         {addid.append(bbb2+",");}
                         }
                         String adad=new String(addid);
+                        AntForestToast.show(addid);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
                                 if (Config.getDontCollectList().contains(selfId))
@@ -567,6 +568,7 @@ public class AntForest {
                     else
                     {addid.append(bbb2+",");}
                     }
+                    AntForestToast.show(addid);
                     String adad=new String(addid);
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
