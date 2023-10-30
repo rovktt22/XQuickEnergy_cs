@@ -387,7 +387,7 @@ public class AntForest {
                         if(jaBubbles.length()==q)
                         {addid.append(bbb2);}
                         else
-                        {ddid.append(bbb2+",");}
+                        {addid.append(bbb2+",");}
                         }
                         String adad=new String(addid);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
@@ -565,7 +565,7 @@ public class AntForest {
                     if(jaBubbles.length()==q)
                     {addid.append(bbb2);}
                     else
-                    {ddid.append(bbb2+",");}
+                    {addid.append(bbb2+",");}
                     }
                     String adad=new String(addid);
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
