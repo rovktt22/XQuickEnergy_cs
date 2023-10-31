@@ -400,7 +400,7 @@ public class AntForest {
                         String adad=new String(addid);
                         //String ztckk=new String(ztck);
                         //AntForestToast.show(addid);
-                        Log.forest(fftp1);
+                        //Log.forest(fftp1);
                         Log.forest(adad);
                         collectedEnergy += collectEnergy2(selfId, adad, selfName, null);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
@@ -591,7 +591,7 @@ public class AntForest {
                     String adad=new String(addid);
                     //String ztckk=new String(ztck);
                     Log.forest(adad);
-                    Log.forest(fftp1);
+                    //Log.forest(fftp1);
                     collected += collectEnergy2(userId, adad, bizNo);
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         /*case AVAILABLE:
