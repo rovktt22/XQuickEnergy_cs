@@ -387,7 +387,8 @@ public class AntForest {
                         //addid.append(","+bbb2);
                         int bvid=q+1;
                         //ztck.append(CollectStatus.valueOf(bubble2.getString("collectStatus")));
-                        if(CollectStatus.valueOf(bubble2.getString("collectStatus"))==AVAILABLE)
+                        String zxzx8=CollectStatus.valueOf(bubble2.getString("collectStatus"));
+                        if(zxzx7=="AVAILABLE")
                         {if(jaBubbles.length()==bvid)
                         {addid.append(bbb2);}
                         else
@@ -574,7 +575,8 @@ public class AntForest {
                     String bbb2=Long.toString(bubbleId2);
                     //ztck.append(CollectStatus.valueOf(bubble2.getString("collectStatus")));
                     int bpid=q+1;
-                    if(CollectStatus.valueOf(bubble2.getString("collectStatus"))==AVAILABLE)
+                    String zxzx=CollectStatus.valueOf(bubble2.getString("collectStatus"));
+                    if(zxzx=="AVAILABLE")
                     {if(jaBubbles.length()==bpid)
                     {addid.append(bbb2);}
                     else
