@@ -390,12 +390,15 @@ public class AntForest {
                         //ztck.append(bubble2.getString("collectStatus"));
                         //String zxzx8=new String(bubble2.getString("collectStatus"));
                         //fftp1=bubble2.getString("collectStatus");
-                        String cpusl="AVAILABLE";
-                        if(CollectStatus.valueOf(bubble2.getString("collectStatus"))==cpusl)
-                        {if(jaBubbles.length()==bvid)
+                        //String cpusl="AVAILABLE";
+                        //if(CollectStatus.valueOf(bubble2.getString("collectStatus"))==cpusl)
+                        switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
+                        case AVAILABLE:
+                        if(jaBubbles.length()==bvid)
                         {addid.append(bbb2);}
                         else
                         {addid.append(bbb2+",");}
+                        break;
                         }}
                         String adad=new String(addid);
                         //String ztckk=new String(ztck);
@@ -581,11 +584,15 @@ public class AntForest {
                     int bpid=q+1;
                     //fftp1=bubble2.getString("collectStatus");
                     String cpusl="AVAILABLE";
-                    if(CollectStatus.valueOf(bubble2.getString("collectStatus"))==cpusl)
-                    {if(jaBubbles.length()==bpid)
+                    //if(CollectStatus.valueOf(bubble2.getString("collectStatus"))==cpusl)
+                    switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
+                    case AVAILABLE:
+                    if(jaBubbles.length()==bpid)
                     {addid.append(bbb2);}
                     else
-                    {addid.append(bbb2+",");}}
+                    {addid.append(bbb2+",");}
+                    break;}
+                    }
                     }
                     //AntForestToast.show(addid);
                     String adad=new String(addid);
