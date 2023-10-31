@@ -373,26 +373,26 @@ public class AntForest {
                 }
                 if (Config.collectEnergy()) {
                     Log.recordLog("进入[" + selfName + "]的蚂蚁森林", "");
-                    for (int i = 0; i < 1; i++){
+                    /*for (int i = 0; i < 1; i++){
                         JSONObject bubble = jaBubbles.getJSONObject(i);
-                        long bubbleId = bubble.getLong("id");
+                        long bubbleId = bubble.getLong("id");*/
                         //String cctt=Long.toString(bubbleId);
                         StringBuffer addid=new StringBuffer();
                         //StringBuffer ztck= new StringBuffer();
                         //String fftp1=new String();
                         for(int q=0;q<jaBubbles.length();q++){
                         //q=q+1;
-                        JSONObject bubble2 = jaBubbles.getJSONObject(q);
-                        long bubbleId2 = bubble2.getLong("id");
+                        JSONObject bubble = jaBubbles.getJSONObject(q);
+                        long bubbleId2 = bubble.getLong("id");
                         String bbb2=Long.toString(bubbleId2);
                         //addid.append(","+bbb2);
                         int bvid=q+1;
-                        //ztck.append(bubble2.getString("collectStatus"));
+                        ztck.append(bubble.getString("collectStatus")+"_");
                         //String zxzx8=new String(bubble2.getString("collectStatus"));
                         //fftp1=bubble2.getString("collectStatus");
                         //String cpusl="AVAILABLE";
                         //if(CollectStatus.valueOf(bubble2.getString("collectStatus"))==cpusl)
-                        switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
+                        switch (CollectStatus.valueOf(bubble.getString("collectStatus"))){
                         case AVAILABLE:
                         if(jaBubbles.length()==bvid)
                         {addid.append(bbb2);}
@@ -402,18 +402,19 @@ public class AntForest {
                         }
                         }
                         String adad=new String(addid);
-                        //String ztckk=new String(ztck);
+                        String ztckk=new String(ztck);
                         //AntForestToast.show(addid);
-                        //Log.forest(fftp1);
+                        Log.forest(ztckk);
                         Log.forest(adad);
+                        if(adad!="")
                         collectedEnergy += collectEnergy2(selfId, adad, selfName, null);
-                        switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
-                            /*case AVAILABLE:
+                        /*switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
+                            case AVAILABLE:
                                 if (Config.getDontCollectList().contains(selfId))
                                     Log.recordLog("不收取[" + selfName + "]", ", userId=" + selfId);
                                 else
                                     collectedEnergy += collectEnergy2(selfId, adad, selfName, null);
-                                break;*/
+                                break;
 
                             case WAITING:
                                 if (Config.getDontCollectList().contains(selfId))
@@ -424,7 +425,7 @@ public class AntForest {
                                 else
                                     setLaterTime(produceTime);
                                 break;
-                        }
+                        }*/
                     }
                 }
                 if (Config.collectWateringBubble()) {
@@ -570,21 +571,21 @@ public class AntForest {
                     }
                 }
                 int collected = 0;
-                for (int i = 0; i <1; i++) {
+                /*for (int i = 0; i <1; i++) {
                     JSONObject bubble = jaBubbles.getJSONObject(i);
-                    long bubbleId = bubble.getLong("id");
+                    long bubbleId = bubble.getLong("id");*/
                     //String cctt=Long.toString(bubbleId);
                     StringBuffer addid=new StringBuffer();
                     //StringBuffer ztck= new StringBuffer();
                     //String fftp1=new String();
                     for(int q=0;q<jaBubbles.length();q++){
-                    JSONObject bubble2 = jaBubbles.getJSONObject(q);
-                    long bubbleId2 = bubble2.getLong("id");
+                    JSONObject bubble = jaBubbles.getJSONObject(q);
+                    long bubbleId2 = bubble.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
-                    //ztck.append(bubble2.getString("collectStatus")+"-");
+                    ztck.append(bubble.getString("collectStatus")+"_");
                     int bpid=q+1;
                     //fftp1=bubble2.getString("collectStatus");
-                    String cpusl="AVAILABLE";
+                    //String cpusl="AVAILABLE";
                     //if(CollectStatus.valueOf(bubble2.getString("collectStatus"))==cpusl)
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                     case AVAILABLE:
@@ -596,17 +597,18 @@ public class AntForest {
                     }
                     //AntForestToast.show(addid);
                     String adad=new String(addid);
-                    //String ztckk=new String(ztck);
+                    String ztckk=new String(ztck);
                     Log.forest(adad);
-                    //Log.forest(fftp1);
+                    Log.forest(ztckk);
+                    if(adad!="")
                     collected += collectEnergy2(userId, adad, bizNo);
-                    switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
-                        /*case AVAILABLE:
+                    /*switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
+                        case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
                                 Log.recordLog("不偷取[" + FriendIdMap.getNameById(userId) + "]", ", userId=" + userId);
                             else
                                 collected += collectEnergy2(userId, adad, bizNo);
-                            break;*/
+                            break;
 
                         case WAITING:
                             if (Config.getDontCollectList().contains(userId))
@@ -617,8 +619,8 @@ public class AntForest {
                             else
                                 setLaterTime(produceTime);
                             break;
-                    }
-                }
+                    }*/
+                //}
                 collectedEnergy += collected;
                 onForestEnd();
             } else {
