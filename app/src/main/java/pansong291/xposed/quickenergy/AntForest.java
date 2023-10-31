@@ -399,7 +399,8 @@ public class AntForest {
                         else
                         {addid.append(bbb2+",");}
                         break;
-                        }}
+                        }
+                        }
                         String adad=new String(addid);
                         //String ztckk=new String(ztck);
                         //AntForestToast.show(addid);
@@ -592,7 +593,6 @@ public class AntForest {
                     else
                     {addid.append(bbb2+",");}
                     break;}
-                    }
                     }
                     //AntForestToast.show(addid);
                     String adad=new String(addid);
