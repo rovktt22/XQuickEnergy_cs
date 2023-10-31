@@ -395,8 +395,8 @@ public class AntForest {
                         else
                         {addid.append(bbb2+",");}
                         }}
-                        //String adad=new String(addid);
-                        String ztckk=new String(ztck);
+                        String adad=new String(addid);
+                        //String ztckk=new String(ztck);
                         //AntForestToast.show(addid);
                         Log.forest(fftp1);
                         Log.forest(adad);
