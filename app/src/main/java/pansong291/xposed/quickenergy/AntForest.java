@@ -386,7 +386,7 @@ public class AntForest {
                         String bbb2=Long.toString(bubbleId2);
                         //addid.append(","+bbb2);
                         int bvid=q+1;
-                        ztck.append(CollectStatus.valueOf(bubble.getString("collectStatus")));
+                        ztck.append(CollectStatus.valueOf(bubble2.getString("collectStatus")));
                         if(jaBubbles.length()==bvid)
                         {addid.append(bbb2);}
                         else
@@ -570,7 +570,7 @@ public class AntForest {
                     JSONObject bubble2 = jaBubbles.getJSONObject(q);
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
-                    ztck.append(CollectStatus.valueOf(bubble.getString("collectStatus")));
+                    ztck.append(CollectStatus.valueOf(bubble2.getString("collectStatus")));
                     int bpid=q+1;
                     if(jaBubbles.length()==bpid)
                     {addid.append(bbb2);}
