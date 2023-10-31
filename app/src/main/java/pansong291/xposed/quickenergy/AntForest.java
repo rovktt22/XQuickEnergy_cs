@@ -386,18 +386,18 @@ public class AntForest {
                         String bbb2=Long.toString(bubbleId2);
                         //addid.append(","+bbb2);
                         int bvid=q+1;
-                        //ztck.append(CollectStatus.valueOf(bubble2.getString("collectStatus")));
-                        String zxzx8=new String(CollectStatus.valueOf(bubble2.getString("collectStatus")));
-                        if(zxzx7=="AVAILABLE")
+                        ztck.append(bubble2.getString("collectStatus")+"-");
+                        String zxzx8=new String(bubble2.getString("collectStatus"));
+                        if(zxzx8=="AVAILABLE")
                         {if(jaBubbles.length()==bvid)
                         {addid.append(bbb2);}
                         else
                         {addid.append(bbb2+",");}
                         }}
                         String adad=new String(addid);
-                        //String ztckk=new String(ztck);
+                        String ztckk=new String(ztck);
                         //AntForestToast.show(addid);
-                        //Log.forest(ztckk);
+                        Log.forest(ztckk);
                         Log.forest(adad);
                         collectedEnergy += collectEnergy2(selfId, adad, selfName, null);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
@@ -573,10 +573,10 @@ public class AntForest {
                     JSONObject bubble2 = jaBubbles.getJSONObject(q);
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
-                    //ztck.append(CollectStatus.valueOf(bubble2.getString("collectStatus")));
+                    ztck.append(bubble2.getString("collectStatus")+"-");
                     int bpid=q+1;
-                    String zxzx=new String(CollectStatus.valueOf(bubble2.getString("collectStatus")));
-                    if(zxzx=="AVAILABLE")
+                    String zxzx7=new String(bubble2.getString("collectStatus"));
+                    if(zxzx7=="AVAILABLE")
                     {if(jaBubbles.length()==bpid)
                     {addid.append(bbb2);}
                     else
@@ -584,9 +584,9 @@ public class AntForest {
                     }
                     //AntForestToast.show(addid);
                     String adad=new String(addid);
-                    //String ztckk=new String(ztck);
+                    String ztckk=new String(ztck);
                     Log.forest(adad);
-                    //Log.forest(ztckk);
+                    Log.forest(ztckk);
                     collected += collectEnergy2(userId, adad, bizNo);
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         /*case AVAILABLE:
