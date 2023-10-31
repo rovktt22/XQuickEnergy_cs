@@ -389,7 +389,7 @@ public class AntForest {
                         ztck.append(bubble2.getString("collectStatus")+"-");
                         //String zxzx8=new String(bubble2.getString("collectStatus"));
                         String fftp1=bubble2.getString("collectStatus");
-                        if(=="AVAILABLE")
+                        if(fftp1=="AVAILABLE")
                         {if(jaBubbles.length()==bvid)
                         {addid.append(bbb2);}
                         else
