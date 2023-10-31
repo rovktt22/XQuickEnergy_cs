@@ -391,7 +391,7 @@ public class AntForest {
                         //String zxzx8=new String(bubble2.getString("collectStatus"));
                         //fftp1=bubble2.getString("collectStatus");
                         String cpusl="AVAILABLE";
-                        if(bubble2.getString("collectStatus")==cpucl)
+                        if(bubble2.getString("collectStatus")==cpusl)
                         {if(jaBubbles.length()==bvid)
                         {addid.append(bbb2);}
                         else
@@ -581,7 +581,7 @@ public class AntForest {
                     int bpid=q+1;
                     //fftp1=bubble2.getString("collectStatus");
                     String cpusl="AVAILABLE";
-                    if(bubble2.getString("collectStatus")==)
+                    if(bubble2.getString("collectStatus")==cpusl)
                     {if(jaBubbles.length()==bpid)
                     {addid.append(bbb2);}
                     else
