@@ -376,10 +376,10 @@ public class AntForest {
                     for (int i = 0; i < 1; i++){
                         JSONObject bubble = jaBubbles.getJSONObject(i);
                         long bubbleId = bubble.getLong("id");
-                        String cctt=Long.toString(bubbleId);
+                        //String cctt=Long.toString(bubbleId);
                         StringBuffer addid=new StringBuffer();
                         //StringBuffer ztck= new StringBuffer();
-                        String fftp1=new String();
+                        //String fftp1=new String();
                         for(int q=0;q<jaBubbles.length();q++){
                         //q=q+1;
                         JSONObject bubble2 = jaBubbles.getJSONObject(q);
@@ -389,8 +389,9 @@ public class AntForest {
                         int bvid=q+1;
                         //ztck.append(bubble2.getString("collectStatus"));
                         //String zxzx8=new String(bubble2.getString("collectStatus"));
-                        fftp1=bubble2.getString("collectStatus");
-                        if(fftp1=="AVAILABLE")
+                        //fftp1=bubble2.getString("collectStatus");
+                        String cpusl="AVAILABLE";
+                        if(bubble2.getString("collectStatus")==cpucl)
                         {if(jaBubbles.length()==bvid)
                         {addid.append(bbb2);}
                         else
@@ -568,18 +569,19 @@ public class AntForest {
                 for (int i = 0; i <1; i++) {
                     JSONObject bubble = jaBubbles.getJSONObject(i);
                     long bubbleId = bubble.getLong("id");
-                    String cctt=Long.toString(bubbleId);
+                    //String cctt=Long.toString(bubbleId);
                     StringBuffer addid=new StringBuffer();
                     //StringBuffer ztck= new StringBuffer();
-                    String fftp1=new String();
+                    //String fftp1=new String();
                     for(int q=0;q<jaBubbles.length();q++){
                     JSONObject bubble2 = jaBubbles.getJSONObject(q);
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
                     //ztck.append(bubble2.getString("collectStatus")+"-");
                     int bpid=q+1;
-                    fftp1=bubble2.getString("collectStatus");
-                    if(fftp1=="AVAILABLE")
+                    //fftp1=bubble2.getString("collectStatus");
+                    String cpusl="AVAILABLE";
+                    if(bubble2.getString("collectStatus")==)
                     {if(jaBubbles.length()==bpid)
                     {addid.append(bbb2);}
                     else
