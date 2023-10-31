@@ -426,7 +426,7 @@ public class AntForest {
                                     setLaterTime(produceTime);
                                 break;
                         }*/
-                    }
+                    //}
                 }
                 if (Config.collectWateringBubble()) {
                     JSONArray wateringBubbles = joHomePage.has("wateringBubbles")
