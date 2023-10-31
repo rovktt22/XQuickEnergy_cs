@@ -386,24 +386,26 @@ public class AntForest {
                         String bbb2=Long.toString(bubbleId2);
                         //addid.append(","+bbb2);
                         int bvid=q+1;
-                        ztck.append(CollectStatus.valueOf(bubble2.getString("collectStatus")));
-                        if(jaBubbles.length()==bvid)
+                        //ztck.append(CollectStatus.valueOf(bubble2.getString("collectStatus")));
+                        if(CollectStatus.valueOf(bubble2.getString("collectStatus"))=="AVAILABLE")
+                        {if(jaBubbles.length()==bvid)
                         {addid.append(bbb2);}
                         else
                         {addid.append(bbb2+",");}
-                        }
+                        }}
                         String adad=new String(addid);
-                        String ztckk=new String(ztck);
+                        //String ztckk=new String(ztck);
                         //AntForestToast.show(addid);
-                        Log.forest(ztckk);
+                        //Log.forest(ztckk);
                         Log.forest(adad);
+                        collectedEnergy += collectEnergy2(selfId, adad, selfName, null);
                         switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
-                            case AVAILABLE:
+                            /*case AVAILABLE:
                                 if (Config.getDontCollectList().contains(selfId))
                                     Log.recordLog("不收取[" + selfName + "]", ", userId=" + selfId);
                                 else
                                     collectedEnergy += collectEnergy2(selfId, adad, selfName, null);
-                                break;
+                                break;*/
 
                             case WAITING:
                                 if (Config.getDontCollectList().contains(selfId))
@@ -570,25 +572,27 @@ public class AntForest {
                     JSONObject bubble2 = jaBubbles.getJSONObject(q);
                     long bubbleId2 = bubble2.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
-                    ztck.append(CollectStatus.valueOf(bubble2.getString("collectStatus")));
+                    //ztck.append(CollectStatus.valueOf(bubble2.getString("collectStatus")));
                     int bpid=q+1;
-                    if(jaBubbles.length()==bpid)
+                    if(CollectStatus.valueOf(bubble2.getString("collectStatus"))=="AVAILABLE")
+                    {if(jaBubbles.length()==bpid)
                     {addid.append(bbb2);}
                     else
-                    {addid.append(bbb2+",");}
+                    {addid.append(bbb2+",");}}
                     }
                     //AntForestToast.show(addid);
                     String adad=new String(addid);
-                    String ztckk=new String(ztck);
+                    //String ztckk=new String(ztck);
                     Log.forest(adad);
-                    Log.forest(ztckk);
+                    //Log.forest(ztckk);
+                    collected += collectEnergy2(userId, adad, bizNo);
                     switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
-                        case AVAILABLE:
+                        /*case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
                                 Log.recordLog("不偷取[" + FriendIdMap.getNameById(userId) + "]", ", userId=" + userId);
                             else
                                 collected += collectEnergy2(userId, adad, bizNo);
-                            break;
+                            break;*/
 
                         case WAITING:
                             if (Config.getDontCollectList().contains(userId))
