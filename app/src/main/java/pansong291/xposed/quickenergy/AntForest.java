@@ -800,6 +800,7 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo) 
     }
 
     private static int collectEnergy2(String userId, String bubbleId, String bizNo, String extra) {
+        
         if (RuntimeInfo.getInstance().getLong(RuntimeInfo.RuntimeInfoKey.ForestPauseTime) > System
                 .currentTimeMillis()) {
             Log.recordLog("异常等待中，暂不收取能量！", "");
@@ -835,8 +836,9 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo) 
                         useDoubleCard();
                         }
                     }
+                    if(bubbleId!=""){
                     s = AntForestRpcCall.collectEnergy2("xingzou",userId, bubbleId);
-                    lastCollectTime = System.currentTimeMillis();
+                    lastCollectTime = System.currentTimeMillis();}
                 }
             }
             waitCollectBubbleIds.remove(bubbleId);
