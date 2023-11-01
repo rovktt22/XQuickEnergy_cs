@@ -870,7 +870,7 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo, 
                             "，UserID：" + userId + "，BubbleId：" + bubbleId);
                 }
                 if (jo.getBoolean("canBeRobbedAgain")) {
-                    collected += collectEnergy2(userId, bubbleId, null, "2jk");
+                    collected += collectEnergy2(userId, bubbleId, null, "2jk", ssttp);
                 }
                 if (bizNo == null || bizNo.isEmpty())
                     return collected;
