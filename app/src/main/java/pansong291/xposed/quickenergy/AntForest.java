@@ -406,7 +406,8 @@ public class AntForest {
                         //AntForestToast.show(addid);
                         Log.forest(ztckk);
                         Log.forest(adad);
-                        if(adad!="")
+                        int dadav= Integer.valueOf(adad.length());
+                        if(dadav!=0)
                         collectedEnergy += collectEnergy2(selfId, adad, selfName, null);
                         /*switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
@@ -600,7 +601,8 @@ public class AntForest {
                     String ztckk=new String(ztck);
                     Log.forest(adad);
                     Log.forest(ztckk);
-                    if(adad!="")
+                    int dadav= Integer.valueOf(adad.length());
+                    if(dadav!=0)
                     collected += collectEnergy2(userId, adad, bizNo);
                     /*switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
@@ -836,7 +838,8 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo) 
                         useDoubleCard();
                         }
                     }
-                    if(bubbleId!=""){
+                    int bbpk= Integer.valueOf(bubbleId.length());
+                    if(bbpk!=0){
                     s = AntForestRpcCall.collectEnergy2("xingzou",userId, bubbleId);
                     lastCollectTime = System.currentTimeMillis();}
                 }
