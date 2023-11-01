@@ -380,6 +380,7 @@ public class AntForest {
                         StringBuffer addid=new StringBuffer();
                         StringBuffer ztck= new StringBuffer();
                         //String fftp1=new String();
+                        int tjtj=0;
                         for(int q=0;q<jaBubbles.length();q++){
                         //q=q+1;
                         JSONObject bubble = jaBubbles.getJSONObject(q);
@@ -398,6 +399,7 @@ public class AntForest {
                         {addid.append(bbb2);}
                         else
                         {addid.append(bbb2+",");}
+                        tjtj=tjtj+1;
                         break;
                         }
                         }
@@ -408,7 +410,7 @@ public class AntForest {
                         Log.forest(adad);
                         int dadav= Integer.valueOf(adad.length());
                         if(dadav!=0)
-                        collectedEnergy += collectEnergy2(selfId, adad, selfName, null);
+                        collectedEnergy += collectEnergy2(selfId, adad, selfName, null, tjtj);
                         /*switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
                                 if (Config.getDontCollectList().contains(selfId))
@@ -576,6 +578,7 @@ public class AntForest {
                     JSONObject bubble = jaBubbles.getJSONObject(i);
                     long bubbleId = bubble.getLong("id");*/
                     //String cctt=Long.toString(bubbleId);
+                    int tjtj=0;
                     StringBuffer addid=new StringBuffer();
                     StringBuffer ztck= new StringBuffer();
                     //String fftp1=new String();
@@ -594,6 +597,7 @@ public class AntForest {
                     {addid.append(bbb2);}
                     else
                     {addid.append(bbb2+",");}
+                    tjtj=tjtj+1;
                     break;}
                     }
                     //AntForestToast.show(addid);
@@ -603,7 +607,7 @@ public class AntForest {
                     Log.forest(ztckk);
                     int dadav= Integer.valueOf(adad.length());
                     if(dadav!=0)
-                    collected += collectEnergy2(userId, adad, bizNo);
+                    collected += collectEnergy2(userId, adad, bizNo, null, tjtj);
                     /*switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
@@ -797,11 +801,11 @@ public class AntForest {
         return collected;
     }
 
-private static int collectEnergy2(String userId, String bubbleId, String bizNo) {
-        return collectEnergy2(userId, bubbleId, bizNo, null);
+private static int collectEnergy2(String userId, String bubbleId, String bizNo, int ssttp) {
+        return collectEnergy2(userId, bubbleId, bizNo, null ssttp);
     }
 
-    private static int collectEnergy2(String userId, String bubbleId, String bizNo, String extra) {
+    private static int collectEnergy2(String userId, String bubbleId, String bizNo, String extra, int ssttp) {
         
         if (RuntimeInfo.getInstance().getLong(RuntimeInfo.RuntimeInfoKey.ForestPauseTime) > System
                 .currentTimeMillis()) {
@@ -848,10 +852,11 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo) 
             JSONObject jo = new JSONObject(s);
             if ("SUCCESS".equals(jo.getString("resultCode"))) {
                 offerCollectQueue();
+                for (int i = 0; i <ssttp; i++) {
                 JSONArray jaBubbles = jo.getJSONArray("bubbles");
-                jo = jaBubbles.getJSONObject(0);
+                jo = jaBubbles.getJSONObject(i);
                 collected += jo.getInt("collectedEnergy");
-                FriendManager.friendWatch(userId, collected);
+                FriendManager.friendWatch(userId, collected);}
                 if (collected > 0) {
                     totalCollected += collected;
                     Statistics.addData(Statistics.DataType.COLLECTED, collected);
