@@ -802,7 +802,7 @@ public class AntForest {
     }
 
 private static int collectEnergy2(String userId, String bubbleId, String bizNo, int ssttp) {
-        return collectEnergy2(userId, bubbleId, bizNo, null ssttp);
+        return collectEnergy2(userId, bubbleId, bizNo, null, ssttp);
     }
 
     private static int collectEnergy2(String userId, String bubbleId, String bizNo, String extra, int ssttp) {
