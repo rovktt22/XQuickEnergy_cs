@@ -378,7 +378,7 @@ public class AntForest {
                         long bubbleId = bubble.getLong("id");*/
                         //String cctt=Long.toString(bubbleId);
                         StringBuffer addid=new StringBuffer();
-                        //StringBuffer ztck= new StringBuffer();
+                        StringBuffer ztck= new StringBuffer();
                         //String fftp1=new String();
                         for(int q=0;q<jaBubbles.length();q++){
                         //q=q+1;
@@ -387,7 +387,7 @@ public class AntForest {
                         String bbb2=Long.toString(bubbleId2);
                         //addid.append(","+bbb2);
                         int bvid=q+1;
-                        ztck.append(CollectStatus.valueOf(bubble.getString("collectStatus")));
+                        ztck.append(CollectStatus.valueOf(bubble.getString("collectStatus"))+"_");
                         //String zxzx8=new String(bubble2.getString("collectStatus"));
                         //fftp1=bubble2.getString("collectStatus");
                         //String cpusl="AVAILABLE";
@@ -576,13 +576,13 @@ public class AntForest {
                     long bubbleId = bubble.getLong("id");*/
                     //String cctt=Long.toString(bubbleId);
                     StringBuffer addid=new StringBuffer();
-                    //StringBuffer ztck= new StringBuffer();
+                    StringBuffer ztck= new StringBuffer();
                     //String fftp1=new String();
                     for(int q=0;q<jaBubbles.length();q++){
                     JSONObject bubble = jaBubbles.getJSONObject(q);
                     long bubbleId2 = bubble.getLong("id");
                     String bbb2=Long.toString(bubbleId2);
-                    ztck.append(CollectStatus.valueOf(bubble.getString("collectStatus")));
+                    ztck.append(CollectStatus.valueOf(bubble.getString("collectStatus"))+"_");
                     int bpid=q+1;
                     //fftp1=bubble2.getString("collectStatus");
                     //String cpusl="AVAILABLE";
