@@ -852,11 +852,12 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo, 
             JSONObject jo = new JSONObject(s);
             if ("SUCCESS".equals(jo.getString("resultCode"))) {
                 offerCollectQueue();
+                int ccpup=ssttp-1;
                 JSONArray jaBubbles = jo.getJSONArray("bubbles");
-                jo = jaBubbles.getJSONObject(0);
+                jo = jaBubbles.getJSONObject(ccpup);
                 for (int i = 0; i <ssttp; i++) {
                 JSONObject jo2 = new JSONObject(s);
-                JSONArray jaBubbles2 = jo2.getJSONArray("bubbles");
+                JSONArray jaBubbles2 = jo.getJSONArray("bubbles");
                 jo2 = jaBubbles2.getJSONObject(i);
                 collected += jo2.getInt("collectedEnergy");
                 }
@@ -867,7 +868,9 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo, 
                     String str = "收能量[" + FriendIdMap.getNameById(userId) + "]#" + collected + "g";
                     if (jo.has("robbedTwice") && jo.getBoolean("robbedTwice")) {
                         str =str + "(双击)";}
+                    
                     Log.forest(str);
+                    Log.forest(jaBubbles.length());
                     AntForestToast.show(str);
                 } else {
                     Log.recordLog("收取[" + FriendIdMap.getNameById(userId) + "]的能量失败",
@@ -876,6 +879,7 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo, 
                 if (jo.getBoolean("canBeRobbedAgain")) {
                     collected += collectEnergy2(userId, bubbleId, null, "2jk", ssttp);
                 }
+                
                 if (bizNo == null || bizNo.isEmpty())
                     return collected;
                 int returnCount = 0;
