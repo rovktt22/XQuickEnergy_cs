@@ -870,7 +870,7 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo, 
                         str =str + "(双击)";}
                     
                     Log.forest(str);
-                    Log.forest(jaBubbles.length());
+                    Log.forest(String.valueOf(jaBubbles.length()));
                     AntForestToast.show(str);
                 } else {
                     Log.recordLog("收取[" + FriendIdMap.getNameById(userId) + "]的能量失败",
