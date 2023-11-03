@@ -855,9 +855,9 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo, 
                 int ccpup=ssttp-1;
                 JSONArray jaBubbles = jo.getJSONArray("bubbles");
                 jo = jaBubbles.getJSONObject(ccpup);
-                for (int i = 0; i <ssttp; i++) {
+                for (int i =0; i <ssttp; i++) {
                 JSONObject jo2 = new JSONObject(s);
-                JSONArray jaBubbles2 = jo.getJSONArray("bubbles");
+                JSONArray jaBubbles2 = jo2.getJSONArray("bubbles");
                 jo2 = jaBubbles2.getJSONObject(i);
                 collected += jo2.getInt("collectedEnergy");
                 }
