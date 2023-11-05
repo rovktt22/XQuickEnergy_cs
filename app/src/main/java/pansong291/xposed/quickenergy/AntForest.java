@@ -406,11 +406,11 @@ public class AntForest {
                         String adad=new String(addid);
                         String ztckk=new String(ztck);
                         //AntForestToast.show(addid);
-                        Log.forest(ztckk);
-                        Log.forest(adad);
-                        int dadav= Integer.valueOf(adad.length());
-                        if(dadav!=0)
+                        int dadav=Integer.valueOf(adad.length());
+                        if(dadav!=0){
                         collectedEnergy += collectEnergy2(selfId, adad, selfName, null, tjtj);
+                        Log.forest(ztckk);
+                        Log.forest(adad);}
                         /*switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                             case AVAILABLE:
                                 if (Config.getDontCollectList().contains(selfId))
@@ -603,11 +603,11 @@ public class AntForest {
                     //AntForestToast.show(addid);
                     String adad=new String(addid);
                     String ztckk=new String(ztck);
-                    Log.forest(adad);
-                    Log.forest(ztckk);
-                    int dadav= Integer.valueOf(adad.length());
+                    int dadav=Integer.valueOf(adad.length());
                     if(dadav!=0)
-                    collected += collectEnergy2(userId, adad, bizNo, null, tjtj);
+                    {collected += collectEnergy2(userId, adad, bizNo, null, tjtj);
+                    Log.forest(adad);
+                    Log.forest(ztckk);}
                     /*switch (CollectStatus.valueOf(bubble.getString("collectStatus"))) {
                         case AVAILABLE:
                             if (Config.getDontCollectList().contains(userId))
@@ -862,7 +862,7 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo, 
                 collected += jo2.getInt("collectedEnergy");
                 }
                 FriendManager.friendWatch(userId, collected);
-                if (collected > 0) {
+                if (collected > 0){
                     totalCollected += collected;
                     Statistics.addData(Statistics.DataType.COLLECTED, collected);
                     String str = "收能量[" + FriendIdMap.getNameById(userId) + "]#" + collected + "g";
@@ -870,7 +870,7 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo, 
                         str =str + "(双击)";}
                     
                     Log.forest(str);
-                    Log.forest(String.valueOf(jaBubbles.length()));
+                    Log.forest("可收取球："+String.valueOf(jaBubbles.length())+"个。");
                     AntForestToast.show(str);
                 } else {
                     Log.recordLog("收取[" + FriendIdMap.getNameById(userId) + "]的能量失败",
