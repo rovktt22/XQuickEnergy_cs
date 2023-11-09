@@ -404,12 +404,13 @@ public class AntForest {
                         }
                         }
                         String adad=new String(addid);
+                        long aaaid=Long.parseLong(adad);
                         //String ztckk=new String(ztck);
                         //AntForestToast.show(addid);
                         int dadav=Integer.valueOf(adad.length());
                         if(dadav!=0){
                     if(dadav==1)
-                    {collected += collectEnergy(userId, adad, bizNo, null);}
+                    {collected += collectEnergy(userId, aaaid, bizNo, null);}
                     else
                     {collected += collectEnergy2(userId, adad, bizNo, null, tjtj);}
                         //collectedEnergy += collectEnergy2(selfId, adad, selfName, null, tjtj);
@@ -607,12 +608,13 @@ public class AntForest {
                     }
                     //AntForestToast.show(addid);
                     String adad=new String(addid);
-                    String ztckk=new String(ztck);
+                    long aaaid=Long.parseLong(adad);
+                    //String ztckk=new String(ztck);
                     int dadav=Integer.valueOf(adad.length());
                     if(dadav!=0)
                     {
                     if (dadav==1)
-                    {collected += collectEnergy(userId, adad, bizNo, null);}
+                    {collected += collectEnergy(userId, aaaid, bizNo, null);}
                     else
                     {collected += collectEnergy2(userId, adad, bizNo, null, tjtj);}
                     //Log.forest(adad);
