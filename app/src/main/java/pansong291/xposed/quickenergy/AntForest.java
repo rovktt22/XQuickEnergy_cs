@@ -404,15 +404,12 @@ public class AntForest {
                         }
                         }
                         String adad=new String(addid);
-                        long aaaid=Long.parseLong(adad);
+                        //long aaaid=Long.parseLong(adad);
                         //String ztckk=new String(ztck);
                         //AntForestToast.show(addid);
                         int dadav=Integer.valueOf(adad.length());
                         if(dadav!=0){   
-                    if (dadav==1)
-                    {collectedEnergy += collectEnergy(selfId, aaaid, selfName, null);}
-                    else
-                    {collectedEnergy += collectEnergy2(selfId, adad, selfName, null, tjtj);}   
+                    collectedEnergy += collectEnergy2(selfId, adad, selfName, null, tjtj); 
                         //collectedEnergy += collectEnergy2(selfId, adad, selfName, null, tjtj);
                         //Log.forest(ztckk);
                         //Log.forest(adad);
@@ -608,15 +605,11 @@ public class AntForest {
                     }
                     //AntForestToast.show(addid);
                     String adad=new String(addid);
-                    long aaaid=Long.parseLong(adad);
+                    //long aaaid=Long.parseLong(adad);
                     //String ztckk=new String(ztck);
                     int dadav=Integer.valueOf(adad.length());
                     if(dadav!=0)
-                    {
-                    if(dadav==1)
-                    {collected += collectEnergy(userId, aaaid, bizNo, null);}
-                    else
-                    {collected += collectEnergy2(userId, adad, bizNo, null, tjtj);}
+                    {collected += collectEnergy2(userId, adad, bizNo, null, tjtj);
                     //Log.forest(adad);
                     //Log.forest(ztckk);
                     }
@@ -761,7 +754,7 @@ public class AntForest {
                     }
                     if (Config.doubleCard() && doubleEndTime < System.currentTimeMillis()) {
                         if (Config.isDoubleCardTime()){
-                        //exchangeEnergyDoubleClick(1);
+                        exchangeEnergyDoubleClick(1);
                         useDoubleCard();
                         }
                     }
@@ -850,7 +843,7 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo, 
                     }
                     if (Config.doubleCard() && doubleEndTime < System.currentTimeMillis()) {
                         if (Config.isDoubleCardTime()){
-                        //exchangeEnergyDoubleClick(1);
+                        exchangeEnergyDoubleClick(1);
                         useDoubleCard();
                         }
                     }
@@ -1029,7 +1022,7 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo, 
                 }
                 if (skuId != null) {
                     for (int exchangeCount = 1; exchangeCount <= count; exchangeCount++) {
-                        if (Statistics.canExchangeDoubleCardToday()) {
+                       // if (Statistics.canExchangeDoubleCardToday()) {
                             jo = new JSONObject(AntForestRpcCall.queryVitalityStoreIndex());
                             if ("SUCCESS".equals(jo.getString("resultCode"))) {
                                 int totalVitalityAmount = jo.getJSONObject("userVitalityInfoVO")
@@ -1051,10 +1044,10 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo, 
                                     break;
                                 }
                             }
-                       } else {
+                       /*} else {
                             Log.recordLog("兑换次数已到上限！", "");
                             break;
-                        }
+                        }*/
                     }
                 }
             } else {
@@ -1315,12 +1308,12 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo, 
                         propName = "限时双击卡";
                         break;
                     }
-                    /*if ("ENERGY_DOUBLE_CLICK".equals(tmpPropType)) {
+                    if ("ENERGY_DOUBLE_CLICK".equals(tmpPropType)) {
                         JSONArray propIdList = forestPropVO.getJSONArray("propIdList");
                         propId = propIdList.getString(0);
                         propType = tmpPropType;
                         propName = "双击卡";
-                    }*/
+                    }
                 }
                 if (!StringUtil.isEmpty(propId)) {
                     jo = new JSONObject(AntForestRpcCall.consumeProp(propId, propType));
