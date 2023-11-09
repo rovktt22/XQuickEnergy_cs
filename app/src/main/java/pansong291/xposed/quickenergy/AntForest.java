@@ -608,12 +608,15 @@ public class AntForest {
                     }
                     //AntForestToast.show(addid);
                     String adad=new String(addid);
-                    //long aaaid=Long.parseLong(adad);
+                    long aaaid=Long.parseLong(adad);
                     //String ztckk=new String(ztck);
                     int dadav=Integer.valueOf(adad.length());
                     if(dadav!=0)
                     {
-                    collected += collectEnergy2(userId, adad, bizNo, null, tjtj);
+                    if(dadav==1)
+                    {collected += collectEnergy(userId, aaaid, bizNo, null);}
+                    else
+                    {collected += collectEnergy2(userId, adad, bizNo, null, tjtj);}
                     //Log.forest(adad);
                     //Log.forest(ztckk);
                     }
