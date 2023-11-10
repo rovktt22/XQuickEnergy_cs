@@ -408,8 +408,12 @@ public class AntForest {
                         //String ztckk=new String(ztck);
                         //AntForestToast.show(addid);
                         int dadav=Integer.valueOf(adad.length());
-                        if(dadav!=0){   
+                        if(dadav!=0){
+                        if (Config.getDontCollectList().contains(selfId))
+                                    Log.recordLog("不收取[" + selfName + "]", ", userId=" + selfId);
+                                else
                         collectedEnergy += collectEnergy2(selfId, adad, selfName, null, tjtj);
+                                break;
                         //collectedEnergy += collectEnergy2(selfId, adad, selfName, null, tjtj);
                         //Log.forest(ztckk);
                         //Log.forest(adad);
@@ -610,7 +614,11 @@ public class AntForest {
                     int dadav=Integer.valueOf(adad.length());
                     if(dadav!=0)
                     {
+                    if (Config.getDontCollectList().contains(userId))
+                                Log.recordLog("不偷取[" + FriendIdMap.getNameById(userId) + "]", ", userId=" + userId);
+                            else
                    collected += collectEnergy2(userId, adad, bizNo, null, tjtj);
+                            break;
                     //Log.forest(adad);
                     //Log.forest(ztckk);
                     }
