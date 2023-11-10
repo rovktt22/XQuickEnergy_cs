@@ -413,7 +413,6 @@ public class AntForest {
                                     Log.recordLog("不收取[" + selfName + "]", ", userId=" + selfId);
                                 else
                         collectedEnergy += collectEnergy2(selfId, adad, selfName, null, tjtj);
-                                break;
                         //collectedEnergy += collectEnergy2(selfId, adad, selfName, null, tjtj);
                         //Log.forest(ztckk);
                         //Log.forest(adad);
@@ -618,7 +617,7 @@ public class AntForest {
                                 Log.recordLog("不偷取[" + FriendIdMap.getNameById(userId) + "]", ", userId=" + userId);
                             else
                    collected += collectEnergy2(userId, adad, bizNo, null, tjtj);
-                            break;
+                            //break;
                     //Log.forest(adad);
                     //Log.forest(ztckk);
                     }
