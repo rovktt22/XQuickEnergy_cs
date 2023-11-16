@@ -1316,12 +1316,12 @@ private static int collectEnergy2(String userId, String bubbleId, String bizNo, 
                         propName = "限时双击卡";
                         break;
                     }
-                    /*if ("ENERGY_DOUBLE_CLICK".equals(tmpPropType)) {
+                    if ("ENERGY_DOUBLE_CLICK".equals(tmpPropType)) {
                         JSONArray propIdList = forestPropVO.getJSONArray("propIdList");
                         propId = propIdList.getString(0);
                         propType = tmpPropType;
                         propName = "双击卡";
-                    }*/
+                    }
                 }
                 if (!StringUtil.isEmpty(propId)) {
                     jo = new JSONObject(AntForestRpcCall.consumeProp(propId, propType));
