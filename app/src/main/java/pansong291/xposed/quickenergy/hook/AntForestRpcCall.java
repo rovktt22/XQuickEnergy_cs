@@ -69,9 +69,8 @@ public class AntForestRpcCall {
         }
 
     public static String transferEnergy(String targetUser, String bizNo, int energyId) {
-        long currentTimeMillis = System.currentTimeMillis();
-        return RpcUtil.request("alipay.antmember.forest.h5.transferEnergy", "[{\"bizNo\":\"" + bizNo
-                + currentTimeMillis + "\",\"energyId\":" + energyId +
+        return RpcUtil.request("alipay.antmember.forest.h5.transferEnergy", "[{\"bizNo\":\"" +
+                bizNo + UUID.randomUUID().toString() + "\",\"energyId\":" + energyId +
                 ",\"extInfo\":{\"sendChat\":\"N\"},\"from\":\"friendIndex\",\"source\":\"chInfo_ch_appcenter__chsub_9patch\",\"targetUser\":\""
                 + targetUser + "\",\"transferType\":\"WATERING\",\"version\":\"" + VERSION + "\"}]");
     }
